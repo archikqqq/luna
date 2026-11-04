@@ -4,7 +4,7 @@ import { Composer } from "./Composer";
 import { Markdown } from "./Markdown";
 import { Icon } from "./Icon";
 import { Welcome } from "./Welcome";
-import { IconButton, MenuField } from "./ui";
+import { IconButton, MenuField } from "./UI";
 
 export function ChatView() {
   const {
@@ -16,7 +16,9 @@ export function ChatView() {
     generatingChatId,
   } = useAppStore();
 
-  const chat = chats.find((item) => item.id === activeChatId);
+  const chat = chats.find(
+    (item) => item.id === activeChatId,
+  );
   const provider = providers.find(
     (item) => item.id === chat?.providerId,
   );
@@ -27,8 +29,8 @@ export function ChatView() {
   const scroll = useRef<HTMLDivElement>(null);
   const follow = useRef(true);
   const previousChat = useRef(activeChatId);
-  const [showDown, setShowDown] = useState(false);
 
+  const [showDown, setShowDown] = useState(false);
   const [suggestion, setSuggestion] = useState<{
     chatId: string;
     text: string;
@@ -47,7 +49,8 @@ export function ChatView() {
     const element = scroll.current;
     if (!element) return;
 
-    const changed = previousChat.current !== activeChatId;
+    const changed =
+      previousChat.current !== activeChatId;
 
     if (changed) {
       previousChat.current = activeChatId;
@@ -70,14 +73,21 @@ export function ChatView() {
 
   return (
     <main className="chat-main">
-      <header className="chat-header">
+      <header
+        className="chat-header"
+        data-enter
+        data-delay="60"
+        data-flip
+      >
         <strong className="topbar-brand">Luna</strong>
 
         <div className="model-pickers">
           <MenuField
             label="Провайдер"
             value={provider.id}
-            disabled={generatingChatId === activeChatId}
+            disabled={
+              generatingChatId === activeChatId
+            }
             options={providers.map((item) => ({
               value: item.id,
               label: item.name,
@@ -86,8 +96,12 @@ export function ChatView() {
               const selected = providers.find(
                 (item) => item.id === id,
               );
+
               if (selected) {
-                setChatModel(selected.id, selected.models[0]);
+                setChatModel(
+                  selected.id,
+                  selected.models[0],
+                );
               }
             }}
           />
@@ -95,7 +109,9 @@ export function ChatView() {
           <MenuField
             label="Модель"
             value={chat.model}
-            disabled={generatingChatId === activeChatId}
+            disabled={
+              generatingChatId === activeChatId
+            }
             options={provider.models.map((model) => ({
               value: model,
               label: model,
@@ -106,12 +122,15 @@ export function ChatView() {
           />
         </div>
 
-        <span className="demo-label">Локальный прототип</span>
+        <span className="demo-label">
+          Локальный прототип
+        </span>
       </header>
 
       <div className="conversation-area">
         <div
           className="message-scroll"
+          key={activeChatId}
           ref={scroll}
           onScroll={() => {
             const element = scroll.current;
@@ -127,7 +146,9 @@ export function ChatView() {
           }}
         >
           {list.length === 0 ? (
-            <Welcome onSuggestion={chooseSuggestion} />
+            <Welcome
+              onSuggestion={chooseSuggestion}
+            />
           ) : (
             <div className="messages">
               {list.map((message) => (
@@ -148,7 +169,10 @@ export function ChatView() {
                   )}
 
                   {message.role === "user" ? (
-                    <div className="user-bubble">
+                    <div
+                      className="user-bubble"
+                      data-motion-key={message.id}
+                    >
                       {message.content && (
                         <div className="user-text">
                           {message.content}
@@ -172,14 +196,26 @@ export function ChatView() {
                     </div>
                   ) : (
                     <>
-                      <Markdown content={message.content} />
+                      <Markdown
+                        content={message.content}
+                        streaming={
+                          message.status === "streaming"
+                        }
+                      />
 
                       {message.status === "streaming" && (
                         <span
                           className="generation-status"
                           role="status"
                         >
-                          Генерация…
+                          <span
+                            className="thinking"
+                            aria-label="Генерация"
+                          >
+                            <i />
+                            <i />
+                            <i />
+                          </span>
                         </span>
                       )}
 

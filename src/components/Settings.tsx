@@ -5,12 +5,28 @@ import {
   type CSSProperties,
   type FormEvent,
 } from "react";
-import { checkConnection, saveProviderKey } from "../lib/api";
+import {
+  animateMotion,
+  closeDialog,
+} from "../lib/motion";
+import { Presence } from "./Motion";
+import {
+  checkConnection,
+  saveProviderKey,
+} from "../lib/api";
 import { seedPresets } from "../lib/theme";
-import { newId, useAppStore } from "../store/useAppStore";
+import {
+  newId,
+  useAppStore,
+} from "../store/useAppStore";
 import type { Provider } from "../types";
 import { Icon } from "./Icon";
-import { Button, IconButton, Switch, TextField } from "./ui";
+import {
+  Button,
+  IconButton,
+  Switch,
+  TextField,
+} from "./UI";
 import { useNotify } from "./Notifications";
 
 function ProviderForm({
@@ -20,12 +36,17 @@ function ProviderForm({
   provider: Provider | null;
   onSaved: (id: string) => void;
 }) {
-  const upsert = useAppStore((state) => state.upsertProvider);
+  const upsert = useAppStore(
+    (state) => state.upsertProvider,
+  );
   const notify = useNotify();
 
-  const [name, setName] = useState(provider?.name ?? "");
+  const [name, setName] = useState(
+    provider?.name ?? "",
+  );
   const [url, setUrl] = useState(
-    provider?.baseUrl ?? "https://api.example.com/v1",
+    provider?.baseUrl ??
+      "https://api.example.com/v1",
   );
   const [models, setModels] = useState(
     provider?.models.join(", ") ?? "",
@@ -34,13 +55,18 @@ function ProviderForm({
   const [fail, setFail] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
+
   const id = useRef(provider?.id ?? newId());
 
   function draft(): Provider {
     const parsed = new URL(url);
 
-    if (!["https:", "http:"].includes(parsed.protocol)) {
-      throw new Error("Нужен HTTP или HTTPS URL.");
+    if (
+      !["https:", "http:"].includes(parsed.protocol)
+    ) {
+      throw new Error(
+        "Нужен HTTP или HTTPS URL.",
+      );
     }
 
     const list = [
@@ -64,7 +90,9 @@ function ProviderForm({
       baseUrl: url.trim(),
       models: list,
       hasKey: provider?.hasKey ?? false,
-      createdAt: provider?.createdAt ?? new Date().toISOString(),
+      createdAt:
+        provider?.createdAt ??
+        new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     };
   }
@@ -85,9 +113,11 @@ function ProviderForm({
 
       upsert(value);
       setKey("");
+
       notify(
         "Провайдер сохранён в памяти. Ключ не записывался.",
       );
+
       onSaved(value.id);
     } catch (caught: unknown) {
       setError(
@@ -106,7 +136,13 @@ function ProviderForm({
 
     try {
       notify(
-        (await checkConnection(draft(), key, fail)).message,
+        (
+          await checkConnection(
+            draft(),
+            key,
+            fail,
+          )
+        ).message,
       );
     } catch (caught: unknown) {
       setError(
@@ -129,16 +165,19 @@ function ProviderForm({
           ? "Редактирование провайдера"
           : "Новый провайдер"}
       </h3>
+
       <p className="muted">
-        Вводи тестовый ключ. Настоящие секреты на этом этапе
-        не нужны.
+        Вводи тестовый ключ. Настоящие секреты
+        на этом этапе не нужны.
       </p>
 
       <fieldset disabled={busy}>
         <TextField
           label="Название"
           value={name}
-          onChange={(event) => setName(event.target.value)}
+          onChange={(event) =>
+            setName(event.target.value)
+          }
           required
           maxLength={80}
         />
@@ -147,7 +186,9 @@ function ProviderForm({
           label="Base URL"
           type="url"
           value={url}
-          onChange={(event) => setUrl(event.target.value)}
+          onChange={(event) =>
+            setUrl(event.target.value)
+          }
           spellCheck={false}
           required
         />
@@ -156,21 +197,26 @@ function ProviderForm({
           label="API-ключ"
           type="password"
           value={key}
-          onChange={(event) => setKey(event.target.value)}
+          onChange={(event) =>
+            setKey(event.target.value)
+          }
           autoComplete="off"
           spellCheck={false}
         />
 
         {provider?.hasKey && (
           <p className="field-hint">
-            Демо-флаг ключа установлен. Пустое поле его не меняет.
+            Демо-флаг ключа установлен. Пустое
+            поле его не меняет.
           </p>
         )}
 
         <TextField
           label="Модели через запятую"
           value={models}
-          onChange={(event) => setModels(event.target.value)}
+          onChange={(event) =>
+            setModels(event.target.value)
+          }
           required
         />
 
@@ -188,13 +234,20 @@ function ProviderForm({
           >
             Проверить подключение
           </Button>
-          <Button className="button filled" type="submit">
+
+          <Button
+            className="button filled"
+            type="submit"
+          >
             Сохранить
           </Button>
         </div>
       </fieldset>
 
-      {busy && <p role="status">Локальная имитация…</p>}
+      {busy && (
+        <p role="status">Локальная имитация…</p>
+      )}
+
       {error && (
         <p className="error" role="alert">
           {error}
@@ -205,8 +258,12 @@ function ProviderForm({
 }
 
 function AppearanceSettings() {
-  const { appearance, setAppearance } = useAppStore();
-  const [hex, setHex] = useState(appearance.seed);
+  const { appearance, setAppearance } =
+    useAppStore();
+
+  const [hex, setHex] = useState(
+    appearance.seed,
+  );
 
   useEffect(
     () => setHex(appearance.seed),
@@ -218,13 +275,15 @@ function AppearanceSettings() {
   return (
     <section className="appearance">
       <h3>Внешний вид</h3>
+
       <p className="muted">
-        Нейтральная палитра по умолчанию. Любой свой seed
-        применяется сразу.
+        Нейтральная палитра по умолчанию.
+        Любой свой seed применяется сразу.
       </p>
 
       <fieldset>
         <legend>Тема</legend>
+
         <div
           className="segments"
           role="group"
@@ -239,15 +298,23 @@ function AppearanceSettings() {
           ).map(([mode, label, icon]) => (
             <Button
               className={
-                appearance.mode === mode ? "selected" : ""
+                appearance.mode === mode
+                  ? "selected"
+                  : ""
               }
-              aria-pressed={appearance.mode === mode}
+              aria-pressed={
+                appearance.mode === mode
+              }
               key={mode}
-              onClick={() => setAppearance({ mode })}
+              onClick={() =>
+                setAppearance({ mode })
+              }
             >
               <Icon
                 name={icon}
-                filled={appearance.mode === mode}
+                filled={
+                  appearance.mode === mode
+                }
               />
               {label}
             </Button>
@@ -265,7 +332,8 @@ function AppearanceSettings() {
               key={preset.value}
               style={
                 {
-                  "--swatch-color": preset.value,
+                  "--swatch-color":
+                    preset.value,
                 } as CSSProperties
               }
               aria-label={preset.name}
@@ -274,7 +342,9 @@ function AppearanceSettings() {
                 preset.value.toLowerCase()
               }
               onClick={() =>
-                setAppearance({ seed: preset.value })
+                setAppearance({
+                  seed: preset.value,
+                })
               }
             >
               {appearance.seed.toLowerCase() ===
@@ -292,7 +362,9 @@ function AppearanceSettings() {
               type="color"
               value={appearance.seed}
               onChange={(event) =>
-                setAppearance({ seed: event.target.value })
+                setAppearance({
+                  seed: event.target.value,
+                })
               }
             />
           </label>
@@ -302,7 +374,9 @@ function AppearanceSettings() {
             value={hex}
             aria-invalid={!valid}
             aria-describedby={
-              !valid ? "hex-error" : undefined
+              !valid
+                ? "hex-error"
+                : undefined
             }
             maxLength={7}
             spellCheck={false}
@@ -310,7 +384,9 @@ function AppearanceSettings() {
               const value = event.target.value;
               setHex(value);
 
-              if (/^#[0-9a-f]{6}$/i.test(value)) {
+              if (
+                /^#[0-9a-f]{6}$/i.test(value)
+              ) {
                 setAppearance({ seed: value });
               }
             }}
@@ -318,7 +394,10 @@ function AppearanceSettings() {
         </div>
 
         {!valid && (
-          <p className="error" id="hex-error">
+          <p
+            className="error"
+            id="hex-error"
+          >
             Нужен HEX из шести цифр.
           </p>
         )}
@@ -332,27 +411,49 @@ export function Settings({
 }: {
   onClose: () => void;
 }) {
-  const providers = useAppStore((state) => state.providers);
+  const providers = useAppStore(
+    (state) => state.providers,
+  );
 
   const [tab, setTab] = useState<
     "providers" | "appearance" | "about"
   >("providers");
 
-  const [selected, setSelected] = useState<string | null>(
-    providers[0]?.id ?? null,
-  );
+  const [panel, setPanel] = useState(tab);
+  const [panelVisible, setPanelVisible] =
+    useState(true);
 
-  const dialog = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    if (tab !== panel) {
+      setPanelVisible(false);
+    }
+  }, [tab, panel]);
+
+  const [selected, setSelected] = useState<
+    string | null
+  >(providers[0]?.id ?? null);
+
+  const dialog =
+    useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     const element = dialog.current;
+
     element?.showModal();
+    if (element) {
+      animateMotion(element, "pop");
+    }
 
     return () => element?.close();
   }, []);
 
+  const close = () =>
+    void closeDialog(dialog.current, onClose);
+
   const provider =
-    providers.find((item) => item.id === selected) ?? null;
+    providers.find(
+      (item) => item.id === selected,
+    ) ?? null;
 
   return (
     <dialog
@@ -361,15 +462,17 @@ export function Settings({
       aria-labelledby="settings-title"
       onCancel={(event) => {
         event.preventDefault();
-        onClose();
+        close();
       }}
     >
       <header className="settings-header">
-        <h2 id="settings-title">Настройки</h2>
+        <h2 id="settings-title">
+          Настройки
+        </h2>
         <IconButton
           name="close"
           label="Закрыть настройки"
-          onClick={onClose}
+          onClick={close}
         />
       </header>
 
@@ -392,7 +495,9 @@ export function Settings({
             aria-controls={`panel-${id}`}
             aria-selected={tab === id}
             tabIndex={tab === id ? 0 : -1}
-            className={tab === id ? "selected" : ""}
+            className={
+              tab === id ? "selected" : ""
+            }
             onClick={() => setTab(id)}
             onKeyDown={(event) => {
               if (
@@ -411,13 +516,19 @@ export function Settings({
                     : event.key === "End"
                       ? all.length - 1
                       : (index +
-                          (event.key === "ArrowRight" ? 1 : -1) +
+                          (event.key ===
+                          "ArrowRight"
+                            ? 1
+                            : -1) +
                           all.length) %
                         all.length;
 
                 setTab(all[next][0]);
+
                 document
-                  .getElementById(`tab-${all[next][0]}`)
+                  .getElementById(
+                    `tab-${all[next][0]}`,
+                  )
                   ?.focus();
               }
             }}
@@ -427,18 +538,27 @@ export function Settings({
         ))}
       </div>
 
-      <div
+      <Presence
+        visible={panelVisible}
+        axis="x"
+        kind="enter"
+        onExited={() => {
+          setPanel(tab);
+          setPanelVisible(true);
+        }}
         className="settings-content"
         role="tabpanel"
-        id={`panel-${tab}`}
-        aria-labelledby={`tab-${tab}`}
+        id={`panel-${panel}`}
+        aria-labelledby={`tab-${panel}`}
       >
-        {tab === "providers" && (
+        {panel === "providers" && (
           <div className="providers-layout">
             <aside>
               <Button
                 className="button tonal"
-                onClick={() => setSelected(null)}
+                onClick={() =>
+                  setSelected(null)
+                }
               >
                 <Icon name="add" />
                 Добавить
@@ -449,13 +569,21 @@ export function Settings({
                   <Button
                     key={item.id}
                     className={
-                      selected === item.id ? "selected" : ""
+                      selected === item.id
+                        ? "selected"
+                        : ""
                     }
-                    aria-pressed={selected === item.id}
-                    onClick={() => setSelected(item.id)}
+                    aria-pressed={
+                      selected === item.id
+                    }
+                    onClick={() =>
+                      setSelected(item.id)
+                    }
                   >
                     <span>
-                      <strong>{item.name}</strong>
+                      <strong>
+                        {item.name}
+                      </strong>
                       <small>
                         {item.hasKey
                           ? "Ключ: демо-флаг"
@@ -464,7 +592,9 @@ export function Settings({
                     </span>
                     <Icon
                       name="dns"
-                      filled={selected === item.id}
+                      filled={
+                        selected === item.id
+                      }
                     />
                   </Button>
                 ))}
@@ -479,24 +609,28 @@ export function Settings({
           </div>
         )}
 
-        {tab === "appearance" && <AppearanceSettings />}
+        {panel === "appearance" && (
+          <AppearanceSettings />
+        )}
 
-        {tab === "about" && (
+        {panel === "about" && (
           <section className="about">
             <h3>Luna · этап 1</h3>
             <p>
-              Клиент для нейросетей с API-ключами пользователя.
+              Клиент для нейросетей с
+              API-ключами пользователя.
             </p>
             <p className="muted">
-              Это UI-прототип. Чаты, провайдеры и hasKey
-              хранятся только в памяти. В localStorage
-              сохраняется только внешний вид. Настоящие
-              запросы не отправляются, ключи не записываются,
+              Это UI-прототип. Чаты, провайдеры
+              и hasKey хранятся только в памяти.
+              В localStorage сохраняется только
+              внешний вид. Настоящие запросы не
+              отправляются, ключи не записываются,
               содержимое файлов не читается.
             </p>
           </section>
         )}
-      </div>
+      </Presence>
     </dialog>
   );
 }

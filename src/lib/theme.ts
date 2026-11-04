@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 import {
   argbFromHex,
   hexFromArgb,
@@ -8,29 +8,47 @@ import {
 } from "@material/material-color-utilities";
 import { useAppStore } from "../store/useAppStore";
 import { DEFAULT_SEED } from "./palette";
+import { viewChange } from "./motion";
 
 export { seedPresets } from "./palette";
 
 const kebab = (value: string) =>
-  value.replace(/[A-Z]/g, (character) => "-" + character.toLowerCase());
+  value.replace(
+    /[A-Z]/g,
+    (character) => "-" + character.toLowerCase(),
+  );
 
-export function applyMaterialTheme(seed: string, dark: boolean): void {
-  const source = Hct.fromInt(argbFromHex(seed));
-  const theme = themeFromSourceColor(argbFromHex(seed));
-  const scheme = dark ? theme.schemes.dark : theme.schemes.light;
+export function applyMaterialTheme(
+  seed: string,
+  dark: boolean,
+): void {
+  const source = Hct.fromInt(
+    argbFromHex(seed),
+  );
+
+  const theme = themeFromSourceColor(
+    argbFromHex(seed),
+  );
+
+  const scheme = dark
+    ? theme.schemes.dark
+    : theme.schemes.light;
+
   const colors: Record<string, string> = {};
 
-  Object.entries(scheme.toJSON()).forEach(([key, value]) => {
-    colors[kebab(key)] = hexFromArgb(value);
-  });
+  Object.entries(scheme.toJSON()).forEach(
+    ([key, value]) => {
+      colors[kebab(key)] = hexFromArgb(value);
+    },
+  );
 
-  // Стандартная схема M3 повышает chroma первичного акцента.
-  // Для почти серого seed сохраняем нейтральность всех акцентов.
   const neutral = source.chroma < 8;
 
   const primary = TonalPalette.fromHueAndChroma(
     source.hue,
-    neutral ? 4 : Math.max(28, source.chroma),
+    neutral
+      ? 4
+      : Math.max(28, source.chroma),
   );
 
   const secondary = TonalPalette.fromHueAndChroma(
@@ -58,16 +76,19 @@ export function applyMaterialTheme(seed: string, dark: boolean): void {
     secondary,
     tertiary,
   })) {
-    colors[name] = hexFromArgb(palette.tone(dark ? 80 : 40));
+    colors[name] = hexFromArgb(
+      palette.tone(dark ? 80 : 40),
+    );
     colors["on-" + name] = hexFromArgb(
       palette.tone(dark ? 20 : 100),
     );
     colors[name + "-container"] = hexFromArgb(
       palette.tone(dark ? 30 : 90),
     );
-    colors["on-" + name + "-container"] = hexFromArgb(
-      palette.tone(dark ? 90 : 10),
-    );
+    colors["on-" + name + "-container"] =
+      hexFromArgb(
+        palette.tone(dark ? 90 : 10),
+      );
   }
 
   const tones: Record<string, number> = dark
@@ -102,9 +123,13 @@ export function applyMaterialTheme(seed: string, dark: boolean): void {
         "inverse-on-surface": 95,
       };
 
-  Object.entries(tones).forEach(([name, tone]) => {
-    colors[name] = hexFromArgb(surface.tone(tone));
-  });
+  Object.entries(tones).forEach(
+    ([name, tone]) => {
+      colors[name] = hexFromArgb(
+        surface.tone(tone),
+      );
+    },
+  );
 
   colors["on-surface-variant"] = hexFromArgb(
     variant.tone(dark ? 80 : 30),
@@ -112,7 +137,9 @@ export function applyMaterialTheme(seed: string, dark: boolean): void {
   colors["surface-variant"] = hexFromArgb(
     variant.tone(dark ? 30 : 90),
   );
-  colors.outline = hexFromArgb(variant.tone(dark ? 60 : 50));
+  colors.outline = hexFromArgb(
+    variant.tone(dark ? 60 : 50),
+  );
   colors["outline-variant"] = hexFromArgb(
     variant.tone(dark ? 30 : 80),
   );
@@ -123,29 +150,63 @@ export function applyMaterialTheme(seed: string, dark: boolean): void {
 
   const root = document.documentElement;
 
-  Object.entries(colors).forEach(([key, value]) => {
-    root.style.setProperty("--md-sys-color-" + key, value);
-  });
+  Object.entries(colors).forEach(
+    ([key, value]) => {
+      root.style.setProperty(
+        "--md-sys-color-" + key,
+        value,
+      );
+    },
+  );
 
-  root.style.colorScheme = dark ? "dark" : "light";
+  root.style.colorScheme =
+    dark ? "dark" : "light";
 }
 
 export function useMaterialTheme(): void {
-  const appearance = useAppStore((state) => state.appearance);
+  const appearance = useAppStore(
+    (state) => state.appearance,
+  );
+
+  const previous = useRef("");
 
   useLayoutEffect(() => {
-    const media = matchMedia("(prefers-color-scheme: dark)");
+    const media = matchMedia(
+      "(prefers-color-scheme: dark)",
+    );
 
-    const apply = () =>
-      applyMaterialTheme(
-        appearance.seed || DEFAULT_SEED,
+    const apply = () => {
+      const dark =
         appearance.mode === "dark" ||
-          (appearance.mode === "system" && media.matches),
-      );
+        (appearance.mode === "system" &&
+          media.matches);
+
+      const seed =
+        appearance.seed || DEFAULT_SEED;
+
+      const key = seed + "|" + dark;
+
+      if (previous.current === key) return;
+
+      const colors = () =>
+        applyMaterialTheme(seed, dark);
+
+      if (previous.current) {
+        viewChange("theme", colors);
+      } else {
+        colors();
+      }
+
+      previous.current = key;
+    };
 
     apply();
     media.addEventListener("change", apply);
 
-    return () => media.removeEventListener("change", apply);
+    return () =>
+      media.removeEventListener(
+        "change",
+        apply,
+      );
   }, [appearance]);
 }

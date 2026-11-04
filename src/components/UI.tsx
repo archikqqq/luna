@@ -11,6 +11,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 import { Icon } from "./Icon";
+import { Presence, AnimatedIcon } from "./Motion";
 
 export function Button({
   children,
@@ -27,7 +28,9 @@ export function Button({
   const animations = useRef(new Set<Animation>());
 
   useEffect(() => {
-    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    const media = matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    );
 
     const cancel = () => {
       if (media.matches) {
@@ -100,7 +103,9 @@ export function Button({
       ],
       {
         duration,
-        easing: computed.getPropertyValue("--standard").trim(),
+        easing: computed
+          .getPropertyValue("--standard")
+          .trim(),
       },
     );
 
@@ -121,11 +126,14 @@ export function Button({
       ref={buttonRef}
       type={type}
       className={`interactive ${className}`}
-      onPointerDown={(event: PointerEvent<HTMLButtonElement>) => {
+      onPointerDown={(
+        event: PointerEvent<HTMLButtonElement>,
+      ) => {
         onPointerDown?.(event);
         if (event.defaultPrevented) return;
 
-        const rect = event.currentTarget.getBoundingClientRect();
+        const rect =
+          event.currentTarget.getBoundingClientRect();
 
         ripple(
           event.clientX - rect.left,
@@ -133,7 +141,9 @@ export function Button({
           event.currentTarget,
         );
       }}
-      onKeyDown={(event: KeyboardEvent<HTMLButtonElement>) => {
+      onKeyDown={(
+        event: KeyboardEvent<HTMLButtonElement>,
+      ) => {
         onKeyDown?.(event);
 
         if (
@@ -164,11 +174,13 @@ export function IconButton({
   name,
   label,
   filled = false,
+  animated = false,
   ...props
 }: Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> & {
   name: string;
   label: string;
   filled?: boolean;
+  animated?: boolean;
 }) {
   const id = useId();
   const ref = useRef<HTMLButtonElement>(null);
@@ -179,6 +191,9 @@ export function IconButton({
     below: boolean;
     target: Element;
   } | null>(null);
+
+  const lastTip = useRef(tip);
+  if (tip) lastTip.current = tip;
 
   function show() {
     const button = ref.current;
@@ -246,28 +261,36 @@ export function IconButton({
           setTip(null);
         }}
       >
-        <Icon name={name} filled={filled} />
+        {animated ? (
+          <AnimatedIcon name={name} filled={filled} />
+        ) : (
+          <Icon name={name} filled={filled} />
+        )}
       </Button>
 
-      {tip &&
+      {lastTip.current &&
         createPortal(
           <span
-            className="tooltip visible"
-            id={id}
-            role="tooltip"
+            className="tooltip-position"
             style={{
               position: "fixed",
-              left: tip.left,
-              top: tip.top,
-              bottom: "auto",
-              transform: tip.below
+              left: lastTip.current.left,
+              top: lastTip.current.top,
+              transform: lastTip.current.below
                 ? "translateX(-50%)"
                 : "translate(-50%, -100%)",
             }}
           >
-            {label}
+            <Presence
+              visible={!!tip}
+              className="tooltip visible"
+              id={id}
+              role="tooltip"
+            >
+              {label}
+            </Presence>
           </span>,
-          tip.target,
+          lastTip.current.target,
         )}
     </span>
   );
@@ -337,25 +360,30 @@ export function MenuField({
 }) {
   const [open, setOpen] = useState(false);
   const id = useId();
+
   const root = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLDivElement>(null);
-  const optionKey = options.map((option) => option.value).join("\0");
+
+  const optionKey = options
+    .map((option) => option.value)
+    .join("\0");
 
   useEffect(() => {
     if (!open) return;
-
-    const items =
-      menu.current?.querySelectorAll<HTMLButtonElement>(
-        "[role=menuitemradio]",
-      );
 
     const index = Math.max(
       0,
       options.findIndex((option) => option.value === value),
     );
 
-    items?.[index]?.focus();
+    const frame = requestAnimationFrame(() => {
+      menu.current
+        ?.querySelectorAll<HTMLButtonElement>(
+          "[role=menuitemradio]",
+        )
+        [index]?.focus();
+    });
 
     const outside = (event: globalThis.PointerEvent) => {
       if (
@@ -367,8 +395,11 @@ export function MenuField({
     };
 
     document.addEventListener("pointerdown", outside);
-    return () =>
+
+    return () => {
+      cancelAnimationFrame(frame);
       document.removeEventListener("pointerdown", outside);
+    };
   }, [open, optionKey, value]);
 
   function close() {
@@ -415,7 +446,7 @@ export function MenuField({
         <Icon name="expand_more" filled={open} />
       </Button>
 
-      {open && (
+      <Presence visible={open} className="menu-presence">
         <div
           ref={menu}
           id={id}
@@ -493,7 +524,7 @@ export function MenuField({
             </Button>
           ))}
         </div>
-      )}
+      </Presence>
     </div>
   );
 }

@@ -5,9 +5,12 @@ import {
   useState,
   type KeyboardEvent,
 } from "react";
-import { newId, useAppStore } from "../store/useAppStore";
+import {
+  newId,
+  useAppStore,
+} from "../store/useAppStore";
 import type { Attachment } from "../types";
-import { IconButton } from "./ui";
+import { IconButton } from "./UI";
 
 export function Composer({
   suggestion,
@@ -17,16 +20,22 @@ export function Composer({
     revision: number;
   } | null;
 }) {
-  const { send, stop, generatingChatId, activeChatId } =
-    useAppStore();
+  const {
+    send,
+    stop,
+    generatingChatId,
+    activeChatId,
+  } = useAppStore();
 
   const [text, setText] = useState("");
-  const [attachments, setAttachments] = useState<Attachment[]>(
-    [],
-  );
+  const [attachments, setAttachments] = useState<
+    Attachment[]
+  >([]);
 
-  const textarea = useRef<HTMLTextAreaElement>(null);
-  const fileInput = useRef<HTMLInputElement>(null);
+  const textarea =
+    useRef<HTMLTextAreaElement>(null);
+  const fileInput =
+    useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (suggestion) {
@@ -49,7 +58,12 @@ export function Composer({
   }, [text]);
 
   function submit() {
-    if (busy || (!text.trim() && !attachments.length)) return;
+    if (
+      busy ||
+      (!text.trim() && !attachments.length)
+    ) {
+      return;
+    }
 
     void send(text, attachments);
     setText("");
@@ -57,7 +71,9 @@ export function Composer({
     textarea.current?.focus();
   }
 
-  function keyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+  function keyDown(
+    event: KeyboardEvent<HTMLTextAreaElement>,
+  ) {
     if (
       event.key === "Enter" &&
       !event.shiftKey &&
@@ -70,22 +86,36 @@ export function Composer({
   }
 
   return (
-    <div className="composer-wrap">
-      <div className={`composer ${text.trim() ? "has-text" : ""}`}>
+    <div
+      className="composer-wrap"
+      data-enter
+      data-delay="120"
+      data-flip
+    >
+      <div
+        className={`composer ${
+          text.trim() ? "has-text" : ""
+        }`}
+      >
         {attachments.length > 0 && (
           <div className="chips">
             {attachments.map((attachment) => (
-              <span className="chip" key={attachment.id}>
+              <span
+                className="chip"
+                key={attachment.id}
+              >
                 <span title={attachment.name}>
                   {attachment.name}
                 </span>
+
                 <IconButton
                   name="close"
                   label={`Убрать ${attachment.name}`}
                   onClick={() =>
                     setAttachments((current) =>
                       current.filter(
-                        (item) => item.id !== attachment.id,
+                        (item) =>
+                          item.id !== attachment.id,
                       ),
                     )
                   }
@@ -98,7 +128,9 @@ export function Composer({
         <textarea
           ref={textarea}
           value={text}
-          onChange={(event) => setText(event.target.value)}
+          onChange={(event) =>
+            setText(event.target.value)
+          }
           onKeyDown={keyDown}
           rows={1}
           placeholder="Напиши что-нибудь…"
@@ -134,7 +166,9 @@ export function Composer({
           <IconButton
             name="attach_file"
             label="Прикрепить файлы"
-            onClick={() => fileInput.current?.click()}
+            onClick={() =>
+              fileInput.current?.click()
+            }
           />
 
           <span className="composer-hint">
@@ -144,25 +178,32 @@ export function Composer({
           </span>
 
           <IconButton
+            animated
             className={`filled send-button ${
               busy ? "is-generating" : ""
             }`}
-            name={busy ? "stop" : "arrow_upward"}
+            name={
+              busy ? "stop" : "arrow_upward"
+            }
             filled={busy}
             label={
-              busy ? "Остановить генерацию" : "Отправить"
+              busy
+                ? "Остановить генерацию"
+                : "Отправить"
             }
             onClick={busy ? stop : submit}
             disabled={
-              !busy && !text.trim() && !attachments.length
+              !busy &&
+              !text.trim() &&
+              !attachments.length
             }
           />
         </div>
       </div>
 
       <p className="footnote">
-        Демо-режим · нет запросов к API · содержимое вложений
-        не читается
+        Демо-режим · нет запросов к API · содержимое
+        вложений не читается
       </p>
     </div>
   );

@@ -8,13 +8,15 @@ import {
   type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
-import { IconButton } from "./ui";
+import { Presence } from "./Motion";
+import { IconButton } from "./UI";
 
-const Context = createContext<(message: string) => void>(
-  () => undefined,
-);
+const Context = createContext<
+  (message: string) => void
+>(() => undefined);
 
-export const useNotify = () => useContext(Context);
+export const useNotify = () =>
+  useContext(Context);
 
 export function Notifications({
   children,
@@ -27,7 +29,8 @@ export function Notifications({
   } | null>(null);
 
   const serial = useRef(0);
-  const [target, setTarget] = useState<HTMLElement>(document.body);
+  const [target, setTarget] =
+    useState<HTMLElement>(document.body);
 
   useEffect(() => {
     const update = () => {
@@ -36,10 +39,14 @@ export function Notifications({
           "dialog[open]",
         );
 
-      setTarget(dialogs[dialogs.length - 1] ?? document.body);
+      setTarget(
+        dialogs[dialogs.length - 1] ??
+          document.body,
+      );
     };
 
     const observer = new MutationObserver(update);
+
     update();
 
     observer.observe(document.body, {
@@ -64,7 +71,11 @@ export function Notifications({
   useEffect(() => {
     if (!notice) return;
 
-    const timer = setTimeout(() => setNotice(null), 5000);
+    const timer = setTimeout(
+      () => setNotice(null),
+      5000,
+    );
+
     return () => clearTimeout(timer);
   }, [notice]);
 
@@ -79,16 +90,19 @@ export function Notifications({
           aria-live="polite"
           aria-atomic="true"
         >
-          {notice && (
-            <div className="snackbar" key={notice.id}>
-              <span>{notice.text}</span>
-              <IconButton
-                name="close"
-                label="Закрыть уведомление"
-                onClick={() => setNotice(null)}
-              />
-            </div>
-          )}
+          <Presence
+            visible={!!notice}
+            className="snackbar"
+          >
+            <span>{notice?.text}</span>
+            <IconButton
+              name="close"
+              label="Закрыть уведомление"
+              onClick={() =>
+                setNotice(null)
+              }
+            />
+          </Presence>
         </div>,
         target,
       )}

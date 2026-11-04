@@ -1,5 +1,6 @@
-import { Button } from "./ui";
+import { Button } from "./UI";
 import { Icon } from "./Icon";
+import { WordReveal } from "./Motion";
 
 const suggestions = [
   {
@@ -27,23 +28,37 @@ export function Welcome({
 }) {
   return (
     <section className="empty-state">
-      <h1>С чего начнём?</h1>
+      <h1>
+        <WordReveal text="С чего начнём?" />
+      </h1>
+
       <p>
-        Твои модели и ключи в одном интерфейсе.
+        <WordReveal
+          text="Твои модели и ключи в одном интерфейсе."
+          start={120}
+        />
         <br />
-        Сейчас здесь локальная имитация ответов.
+        <WordReveal
+          text="Сейчас здесь локальная имитация ответов."
+          start={440}
+        />
       </p>
 
       <div className="suggestions">
-        {suggestions.map((suggestion) => (
-          <Button
-            className="suggestion"
+        {suggestions.map((suggestion, index) => (
+          <span
             key={suggestion.label}
-            onClick={() => onSuggestion(suggestion.text)}
+            data-enter
+            data-delay={680 + index * 45}
           >
-            {suggestion.label}
-            <Icon name="north_east" size={18} />
-          </Button>
+            <Button
+              className="suggestion"
+              onClick={() => onSuggestion(suggestion.text)}
+            >
+              {suggestion.label}
+              <Icon name="north_east" size={18} />
+            </Button>
+          </span>
         ))}
       </div>
     </section>
