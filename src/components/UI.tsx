@@ -28,13 +28,14 @@ export function Button({
   const animations = useRef(new Set<Animation>());
 
   useEffect(() => {
+    const currentAnimations = animations.current;
     const media = matchMedia(
       "(prefers-reduced-motion: reduce)",
     );
 
     const cancel = () => {
       if (media.matches) {
-        animations.current.forEach((animation) =>
+        currentAnimations.forEach((animation) =>
           animation.cancel(),
         );
       }
@@ -44,7 +45,7 @@ export function Button({
 
     return () => {
       media.removeEventListener("change", cancel);
-      animations.current.forEach((animation) =>
+      currentAnimations.forEach((animation) =>
         animation.cancel(),
       );
     };
@@ -192,8 +193,7 @@ export function IconButton({
     target: Element;
   } | null>(null);
 
-  const lastTip = useRef(tip);
-  if (tip) lastTip.current = tip;
+  const [lastTip, setLastTip] = useState(tip);
 
   function show() {
     const button = ref.current;
@@ -202,7 +202,7 @@ export function IconButton({
     const rect = button.getBoundingClientRect();
     const below = rect.top < 64;
 
-    setTip({
+    const position = {
       left: Math.max(
         120,
         Math.min(innerWidth - 120, rect.left + rect.width / 2),
@@ -210,7 +210,10 @@ export function IconButton({
       top: below ? rect.bottom + 8 : rect.top - 8,
       below,
       target: button.closest("dialog[open]") ?? document.body,
-    });
+    };
+
+    setLastTip(position);
+    setTip(position);
   }
 
   useEffect(() => {
@@ -268,15 +271,15 @@ export function IconButton({
         )}
       </Button>
 
-      {lastTip.current &&
+      {lastTip &&
         createPortal(
           <span
             className="tooltip-position"
             style={{
               position: "fixed",
-              left: lastTip.current.left,
-              top: lastTip.current.top,
-              transform: lastTip.current.below
+              left: lastTip.left,
+              top: lastTip.top,
+              transform: lastTip.below
                 ? "translateX(-50%)"
                 : "translate(-50%, -100%)",
             }}
@@ -290,7 +293,7 @@ export function IconButton({
               {label}
             </Presence>
           </span>,
-          lastTip.current.target,
+          lastTip.target,
         )}
     </span>
   );
@@ -378,11 +381,10 @@ export function MenuField({
     );
 
     const frame = requestAnimationFrame(() => {
-      menu.current
-        ?.querySelectorAll<HTMLButtonElement>(
-          "[role=menuitemradio]",
-        )
-        [index]?.focus();
+      const items = menu.current?.querySelectorAll<HTMLButtonElement>(
+        "[role=menuitemradio]",
+      );
+      items?.[index]?.focus();
     });
 
     const outside = (event: globalThis.PointerEvent) => {
@@ -400,7 +402,7 @@ export function MenuField({
       cancelAnimationFrame(frame);
       document.removeEventListener("pointerdown", outside);
     };
-  }, [open, optionKey, value]);
+  }, [open, optionKey, options, value]);
 
   function close() {
     setOpen(false);

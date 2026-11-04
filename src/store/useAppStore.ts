@@ -77,6 +77,8 @@ export const useAppStore = create<AppState>()(
       generatingChatId: null,
 
       newChat: () => {
+        if (get().generatingChatId) get().stop();
+
         const current = get().chats.find(
           (chat) => chat.id === get().activeChatId,
         );
@@ -104,7 +106,11 @@ export const useAppStore = create<AppState>()(
         }));
       },
 
-      selectChat: (id) => set({ activeChatId: id }),
+      selectChat: (id) => {
+        if (id === get().activeChatId) return;
+        if (get().generatingChatId) get().stop();
+        set({ activeChatId: id });
+      },
 
       renameChat: (id, title) => {
         const trimmed = title.trim().slice(0, 100);

@@ -29,12 +29,11 @@ export function Presence({
 }) {
   const [present, setPresent] = useState(visible);
   const ref = useRef<HTMLDivElement>(null);
-  const retained = useRef(children);
-
-  if (visible) retained.current = children;
-
   const done = useRef(onExited);
-  done.current = onExited;
+
+  useLayoutEffect(() => {
+    done.current = onExited;
+  }, [onExited]);
 
   useLayoutEffect(() => {
     if (visible && !present) setPresent(true);
@@ -72,7 +71,7 @@ export function Presence({
 
   return present ? (
     <div {...props} ref={ref}>
-      {visible ? children : retained.current}
+      {children}
     </div>
   ) : null;
 }
@@ -81,6 +80,7 @@ export function MotionRoot() {
   useEffect(() => {
     const seen = new WeakSet<Element>();
     const keys = new Set<string>();
+    const keyOrder: string[] = [];
     const running = new Set<
       ReturnType<typeof animateMotion>
     >();
@@ -107,6 +107,12 @@ export function MotionRoot() {
         if (node.dataset.motionKey) {
           if (keys.has(node.dataset.motionKey)) return;
           keys.add(node.dataset.motionKey);
+          keyOrder.push(node.dataset.motionKey);
+
+          if (keyOrder.length > 1000) {
+            const oldest = keyOrder.shift();
+            if (oldest) keys.delete(oldest);
+          }
         }
 
         const motion = animateMotion(

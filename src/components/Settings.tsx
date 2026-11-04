@@ -27,7 +27,7 @@ import {
   Switch,
   TextField,
 } from "./UI";
-import { useNotify } from "./Notifications";
+import { useNotify } from "./notification-context";
 
 function ProviderForm({
   provider,
@@ -258,16 +258,11 @@ function ProviderForm({
 }
 
 function AppearanceSettings() {
-  const { appearance, setAppearance } =
-    useAppStore();
+  const appearance = useAppStore((state) => state.appearance);
+  const setAppearance = useAppStore((state) => state.setAppearance);
 
   const [hex, setHex] = useState(
     appearance.seed,
-  );
-
-  useEffect(
-    () => setHex(appearance.seed),
-    [appearance.seed],
   );
 
   const valid = /^#[0-9a-f]{6}$/i.test(hex);
@@ -342,9 +337,10 @@ function AppearanceSettings() {
                 preset.value.toLowerCase()
               }
               onClick={() =>
-                setAppearance({
-                  seed: preset.value,
-                })
+                {
+                  setHex(preset.value);
+                  setAppearance({ seed: preset.value });
+                }
               }
             >
               {appearance.seed.toLowerCase() ===
@@ -362,9 +358,10 @@ function AppearanceSettings() {
               type="color"
               value={appearance.seed}
               onChange={(event) =>
-                setAppearance({
-                  seed: event.target.value,
-                })
+                {
+                  setHex(event.target.value);
+                  setAppearance({ seed: event.target.value });
+                }
               }
             />
           </label>
@@ -423,11 +420,11 @@ export function Settings({
   const [panelVisible, setPanelVisible] =
     useState(true);
 
-  useEffect(() => {
-    if (tab !== panel) {
-      setPanelVisible(false);
-    }
-  }, [tab, panel]);
+  const chooseTab = (next: typeof tab) => {
+    if (next === tab) return;
+    setTab(next);
+    if (next !== panel) setPanelVisible(false);
+  };
 
   const [selected, setSelected] = useState<
     string | null
@@ -498,7 +495,7 @@ export function Settings({
             className={
               tab === id ? "selected" : ""
             }
-            onClick={() => setTab(id)}
+            onClick={() => chooseTab(id)}
             onKeyDown={(event) => {
               if (
                 [
@@ -523,7 +520,7 @@ export function Settings({
                           all.length) %
                         all.length;
 
-                setTab(all[next][0]);
+                chooseTab(all[next][0]);
 
                 document
                   .getElementById(

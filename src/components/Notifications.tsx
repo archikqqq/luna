@@ -1,7 +1,5 @@
 import {
-  createContext,
   useCallback,
-  useContext,
   useEffect,
   useRef,
   useState,
@@ -10,13 +8,7 @@ import {
 import { createPortal } from "react-dom";
 import { Presence } from "./Motion";
 import { IconButton } from "./UI";
-
-const Context = createContext<
-  (message: string) => void
->(() => undefined);
-
-export const useNotify = () =>
-  useContext(Context);
+import { NotificationContext } from "./notification-context";
 
 export function Notifications({
   children,
@@ -80,7 +72,7 @@ export function Notifications({
   }, [notice]);
 
   return (
-    <Context.Provider value={notify}>
+    <NotificationContext.Provider value={notify}>
       {children}
 
       {createPortal(
@@ -106,6 +98,6 @@ export function Notifications({
         </div>,
         target,
       )}
-    </Context.Provider>
+    </NotificationContext.Provider>
   );
 }

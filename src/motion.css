@@ -53,8 +53,27 @@
 }
 
 .stream-piece {
-  display: inline-block;
+  display: inline;
   white-space: pre-wrap;
+}
+
+.stream-piece-new {
+  position: relative;
+  animation: stream-reveal 360ms var(--motion-emphasized) both;
+}
+
+@keyframes stream-reveal {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    top: 3px;
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    top: 0;
+  }
 }
 
 .markdown-block {
@@ -306,6 +325,10 @@ html[data-transition="theme"]
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .stream-piece-new {
+    animation: stream-fade var(--motion-fade) linear both !important;
+  }
+
   .settings-button:hover .icon,
   .settings-button:focus-visible .icon {
     transform: none;
@@ -335,5 +358,15 @@ html[data-transition="theme"]
       color
         var(--motion-fade) linear
         !important;
+  }
+}
+
+@keyframes stream-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

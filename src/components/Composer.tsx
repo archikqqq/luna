@@ -1,5 +1,4 @@
 import {
-  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -20,14 +19,14 @@ export function Composer({
     revision: number;
   } | null;
 }) {
-  const {
-    send,
-    stop,
-    generatingChatId,
-    activeChatId,
-  } = useAppStore();
+  const send = useAppStore((state) => state.send);
+  const stop = useAppStore((state) => state.stop);
+  const generatingChatId = useAppStore(
+    (state) => state.generatingChatId,
+  );
+  const activeChatId = useAppStore((state) => state.activeChatId);
 
-  const [text, setText] = useState("");
+  const [text, setText] = useState(suggestion?.text ?? "");
   const [attachments, setAttachments] = useState<
     Attachment[]
   >([]);
@@ -36,13 +35,6 @@ export function Composer({
     useRef<HTMLTextAreaElement>(null);
   const fileInput =
     useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (suggestion) {
-      setText(suggestion.text);
-      textarea.current?.focus();
-    }
-  }, [suggestion]);
 
   const busy = generatingChatId !== null;
   const here = generatingChatId === activeChatId;
@@ -126,6 +118,7 @@ export function Composer({
         )}
 
         <textarea
+          autoFocus
           ref={textarea}
           value={text}
           onChange={(event) =>

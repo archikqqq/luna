@@ -15,7 +15,7 @@ import { Presence } from "./Motion";
 import { useAppStore } from "../store/useAppStore";
 import { Icon } from "./Icon";
 import { Button, IconButton, TextField } from "./UI";
-import { useNotify } from "./Notifications";
+import { useNotify } from "./notification-context";
 
 export function Sidebar({
   collapsed,
@@ -26,14 +26,12 @@ export function Sidebar({
   onToggle: () => void;
   onSettings: () => void;
 }) {
-  const {
-    chats,
-    activeChatId,
-    selectChat,
-    newChat,
-    renameChat,
-    deleteChat,
-  } = useAppStore();
+  const chats = useAppStore((state) => state.chats);
+  const activeChatId = useAppStore((state) => state.activeChatId);
+  const selectChat = useAppStore((state) => state.selectChat);
+  const newChat = useAppStore((state) => state.newChat);
+  const renameChat = useAppStore((state) => state.renameChat);
+  const deleteChat = useAppStore((state) => state.deleteChat);
 
   const [editing, setEditing] = useState<string | null>(null);
   const [deleting, setDeleting] = useState<string | null>(null);

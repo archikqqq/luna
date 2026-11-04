@@ -268,6 +268,7 @@ type TransitionDocument = Document & {
 
 let transition: Transition | undefined;
 let viewVersion = 0;
+let colorFadeTimer: ReturnType<typeof setTimeout> | undefined;
 
 export function viewChange(
   kind: "thread" | "theme",
@@ -279,14 +280,14 @@ export function viewChange(
   transition?.skipTransition();
 
   if (reducedMotion() || !doc.startViewTransition) {
+    if (colorFadeTimer) clearTimeout(colorFadeTimer);
     document.documentElement.classList.add("color-fade");
     update();
 
-    setTimeout(
-      () =>
-        document.documentElement.classList.remove("color-fade"),
-      token("--motion-fade", 80),
-    );
+    colorFadeTimer = setTimeout(() => {
+      document.documentElement.classList.remove("color-fade");
+      colorFadeTimer = undefined;
+    }, token("--motion-fade", 80));
 
     return;
   }

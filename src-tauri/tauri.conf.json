@@ -1,6 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "luna",
+  "productName": "Luna",
   "version": "0.1.0",
   "identifier": "com.tguse.luna",
   "build": {
@@ -12,9 +12,12 @@
   "app": {
     "windows": [
       {
-        "title": "luna",
-        "width": 800,
-        "height": 600
+        "title": "Luna — AI-клиент",
+        "width": 1280,
+        "height": 800,
+        "minWidth": 900,
+        "minHeight": 640,
+        "center": true
       }
     ],
     "security": {
