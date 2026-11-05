@@ -23,8 +23,10 @@ const suggestions = [
 
 export function Welcome({
   onSuggestion,
+  onAddProvider,
 }: {
   onSuggestion: (text: string) => void;
+  onAddProvider?: () => void;
 }) {
   return (
     <section className="empty-state">
@@ -33,16 +35,14 @@ export function Welcome({
       </h1>
 
       <p>
-        <WordReveal
-          text="Твои модели и ключи в одном интерфейсе."
-          start={120}
-        />
-        <br />
-        <WordReveal
-          text="Сейчас здесь локальная имитация ответов."
-          start={440}
-        />
+        <WordReveal text="Твои модели и ключи в одном интерфейсе." start={120} />
       </p>
+
+      {onAddProvider && (
+        <Button className="button filled" onClick={onAddProvider}>
+          Добавить провайдера
+        </Button>
+      )}
 
       <div className="suggestions">
         {suggestions.map((suggestion, index) => (

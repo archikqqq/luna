@@ -13,7 +13,7 @@ import type { Message } from "../types";
 import { Composer } from "./Composer";
 import { Icon } from "./Icon";
 import { Markdown } from "./Markdown";
-import { IconButton, MenuField } from "./UI";
+import { Button, IconButton, MenuField } from "./UI";
 import { Welcome } from "./Welcome";
 
 const MessageView = memo(function MessageView({
@@ -22,6 +22,11 @@ const MessageView = memo(function MessageView({
   message: Message;
 }) {
   const assistant = message.role === "assistant";
+  const text = message.blocks
+    .filter((block) => block.type === "text")
+    .map((block) => block.text)
+    .join("");
+  const retry = useAppStore((state) => state.retry);
 
   return (
     <article
@@ -38,8 +43,8 @@ const MessageView = memo(function MessageView({
 
       {!assistant ? (
         <div className="user-bubble" data-motion-key={message.id}>
-          {message.content && (
-            <div className="user-text">{message.content}</div>
+          {text && (
+            <div className="user-text">{text}</div>
           )}
 
           {message.attachments.length > 0 && (
@@ -55,7 +60,7 @@ const MessageView = memo(function MessageView({
       ) : (
         <>
           <Markdown
-            content={message.content}
+            content={text}
             streaming={message.status === "streaming"}
           />
 
@@ -75,9 +80,12 @@ const MessageView = memo(function MessageView({
           )}
 
           {message.status === "error" && (
-            <p className="error" role="alert">
-              {message.error}
-            </p>
+            <div className="error-message">
+              <p className="error" role="alert">{message.error}</p>
+              <Button className="button outlined" onClick={() => void retry(message.id)}>
+                Повторить
+              </Button>
+            </div>
           )}
         </>
       )}
@@ -85,7 +93,7 @@ const MessageView = memo(function MessageView({
   );
 });
 
-export function ChatView() {
+export function ChatView({ onOpenSettings }: { onOpenSettings?: () => void }) {
   const chats = useAppStore((state) => state.chats);
   const messages = useAppStore((state) => state.messages);
   const providers = useAppStore((state) => state.providers);
@@ -144,8 +152,8 @@ export function ChatView() {
 
   const lastMessage = list[list.length - 1];
   const scrollRevision = `${lastMessage?.id ?? ""}:${
-    lastMessage?.content.length ?? 0
-  }:${lastMessage?.status ?? ""}`;
+    lastMessage?.blocks.length ?? 0
+  }:${lastMessage?.blocks.map((block) => block.type === "text" ? block.text.length : 0).join(",")}:${lastMessage?.status ?? ""}`;
 
   useLayoutEffect(() => {
     const changed = previousChat.current !== activeChatId;
@@ -184,7 +192,11 @@ export function ChatView() {
   );
 
   if (!chat || !provider) {
-    return <main className="chat-main">Нет доступного провайдера.</main>;
+    return (
+      <main className="chat-main" aria-label="Настройка Luna">
+        <Welcome onSuggestion={() => onOpenSettings?.()} onAddProvider={onOpenSettings} />
+      </main>
+    );
   }
 
   const generatingHere = generatingChatId === activeChatId;
@@ -215,7 +227,7 @@ export function ChatView() {
           />
         </div>
 
-        <span className="demo-label">Локальный прототип</span>
+        {provider.kind === "demo" && <span className="demo-label">Demo</span>}
       </header>
 
       <div className="conversation-area">

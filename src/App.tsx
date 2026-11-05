@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 import { flipLayout } from "./lib/motion";
 import { MotionRoot } from "./components/Motion";
@@ -7,11 +7,17 @@ import { ChatView } from "./components/ChatView";
 import { Settings } from "./components/Settings";
 import { Notifications } from "./components/Notifications";
 import { useMaterialTheme } from "./lib/theme";
+import { useAppStore } from "./store/useAppStore";
 import "./App.css";
 import "./motion.css";
 
 export default function App() {
   useMaterialTheme();
+  const hydrate = useAppStore((state) => state.hydrate);
+
+  useEffect(() => {
+    void hydrate();
+  }, [hydrate]);
 
   const [collapsed, setCollapsed] =
     useState(false);
@@ -46,7 +52,7 @@ export default function App() {
           }
         />
 
-        <ChatView />
+        <ChatView onOpenSettings={() => setSettings(true)} />
 
         {settings && (
           <Settings

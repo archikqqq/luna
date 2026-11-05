@@ -1,0 +1,4424 @@
+﻿[
+    {
+        "id":  "modal",
+        "name":  "Modal",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.us-west.modal.direct/v1",
+        "keyUrl":  "https://modal.com/docs/guide/endpoints",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-2.4T-A95B",
+                         "nvidia/GLM-5.3-Flash-NVFP4",
+                         "meta-models/Muse-Spark-Open-816B-A42B",
+                         "moonshotai/Kimi-K3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MODAL_PROXY_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "munito-eu",
+        "name":  "Munito AI (EU)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.eu.munito.ai/inference/v1",
+        "keyUrl":  "https://docs.munito.ai/regions",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.8-27b",
+                         "zai-org/glm-5.3-flash",
+                         "aleph-alpha/kolibri-1",
+                         "deepseek-ai/deepseek-v4-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MUNITO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "munito",
+        "name":  "Munito AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.munito.ai/inference/v1",
+        "keyUrl":  "https://docs.munito.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.8-27b",
+                         "zai-org/glm-5.3-flash",
+                         "aleph-alpha/kolibri-1",
+                         "deepseek-ai/deepseek-v4-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MUNITO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "morph",
+        "name":  "Morph",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.morphllm.com/v1",
+        "keyUrl":  "https://docs.morphllm.com/api-reference/introduction",
+        "keyRequired":  true,
+        "examples":  [
+                         "morph-glm53flash",
+                         "morph-dsv41flash-1017",
+                         "morph-v3-large",
+                         "morph-kimik3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MORPH_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "above",
+        "name":  "above.dev",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.above.dev/v1",
+        "keyUrl":  "https://above.dev/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.2-fast",
+                         "deepseek-v4-pro",
+                         "glm-5.2",
+                         "deepseek-v4-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ABOVE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "deepseek",
+        "name":  "DeepSeek",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.deepseek.com",
+        "keyUrl":  "https://api-docs.deepseek.com/quick_start/pricing",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek-v4-pro",
+                         "deepseek-v4-flash-vision-exp",
+                         "deepseek-v4-flash",
+                         "deepseek-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DEEPSEEK_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "sarvam",
+        "name":  "Sarvam AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.sarvam.ai/v1",
+        "keyUrl":  "https://docs.sarvam.ai/api-reference-docs/getting-started/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "sarvam-105b",
+                         "sarvam-30b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SARVAM_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "boundless",
+        "name":  "Boundless",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.inference.boundless.network/v1",
+        "keyUrl":  "https://inference.boundless.network/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "glm-5.2",
+                         "gpt-5.6-luna",
+                         "dsv4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "BOUNDLESS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "wallaby",
+        "name":  "Wallaby",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.wallabytoken.com/v1",
+        "keyUrl":  "https://wallabytoken.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "moonshotai/kimi-k3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "WALLABY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "pareto",
+        "name":  "Pareto Inference",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.paretoinference.com/v1",
+        "keyUrl":  "https://docs.paretoinference.com/",
+        "keyRequired":  true,
+        "examples":  [
+                         "z-ai/glm-5.3-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "PARETO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "minimax-cn-coding-plan",
+        "name":  "MiniMax Token Plan (minimax.cn)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.minimax.cn/anthropic/v1",
+        "keyUrl":  "https://platform.minimaxi.com/docs/token-plan/intro",
+        "keyRequired":  true,
+        "examples":  [
+                         "MiniMax-M3.1-Flash-Preview",
+                         "MiniMax-M2.7",
+                         "MiniMax-M3.1-Flash",
+                         "MiniMax-M2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MINIMAX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "zenmux",
+        "name":  "ZenMux",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://zenmux.ai/api/v1",
+        "keyUrl":  "https://docs.zenmux.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.5-plus",
+                         "qwen/qwen3.6-plus",
+                         "qwen/qwen3-max",
+                         "qwen/qwen3.7-max"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ZENMUX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "longcat",
+        "name":  "LongCat",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.longcat.chat/openai",
+        "keyUrl":  "https://longcat.chat/platform/docs/",
+        "keyRequired":  true,
+        "examples":  [
+                         "LongCat-2.5-Preview",
+                         "LongCat-2.0"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LONGCAT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "trustedrouter",
+        "name":  "TrustedRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.trustedrouter.com/v1",
+        "keyUrl":  "https://trustedrouter.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "trustedrouter/cheap",
+                         "trustedrouter/fast",
+                         "trustedrouter/synth",
+                         "trustedrouter/e2e"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TRUSTEDROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "kenari",
+        "name":  "Kenari",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://kenari.id/v1",
+        "keyUrl":  "https://kenari.id/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-5-4-mini",
+                         "claude-fable-5",
+                         "mistral-medium-3-5:free",
+                         "gpt-oss-20b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "KENARI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "xiaomi",
+        "name":  "Xiaomi",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.xiaomimimo.com/v1",
+        "keyUrl":  "https://platform.xiaomimimo.com/#/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "mimo-v2.5",
+                         "mimo-v2.5-pro-ultraspeed",
+                         "mimo-v2.5-pro",
+                         "mimo-v2.6-pro-ultraspeed"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "XIAOMI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "inco",
+        "name":  "Inco",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.inco.ai/v1",
+        "keyUrl":  "https://platform.inco.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "minimax-m3:fast",
+                         "glm-5.3:fast",
+                         "minimax-m3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "INCO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "crossmodel",
+        "name":  "CrossModel",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.crossmodel.ai/v1",
+        "keyUrl":  "https://www.crossmodel.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini/gemini-3-flash-preview",
+                         "gemini/gemini-3.5-flash",
+                         "gemini/gemini-2.5-flash-lite",
+                         "gemini/gemini-2.5-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CROSSMODEL_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "azure",
+        "name":  "Azure",
+        "kind":  "azure-openai",
+        "baseUrl":  "",
+        "keyUrl":  "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-4-5",
+                         "grok-4-1-fast-non-reasoning",
+                         "claude-fable-5",
+                         "gpt-4.1"
+                     ],
+        "confirmed":  true,
+        "notes":  "Скоро: нативный адаптер ещё не реализован.",
+        "environmentVariables":  [
+                                     "AZURE_RESOURCE_NAME",
+                                     "AZURE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "qihang-ai",
+        "name":  "QiHang",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.qhaigc.net/v1",
+        "keyUrl":  "https://www.qhaigc.net/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-3-flash-preview",
+                         "claude-opus-4-5-20251101",
+                         "gemini-3-pro-preview",
+                         "gpt-5-mini"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "QIHANG_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "vivgrid",
+        "name":  "Vivgrid",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.vivgrid.com/v1",
+        "keyUrl":  "https://docs.vivgrid.com/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-fable-5",
+                         "gpt-5.5",
+                         "claude-haiku-5-5",
+                         "viv-fast"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "VIVGRID_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "poe",
+        "name":  "Poe",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.poe.com/v1",
+        "keyUrl":  "https://creator.poe.com/docs/external-applications/openai-compatible-api",
+        "keyRequired":  true,
+        "examples":  [
+                         "stabilityai/stablediffusionxl",
+                         "poetools/claude-code",
+                         "anthropic/claude-opus-4",
+                         "anthropic/claude-haiku-3.5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "POE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "clarifai",
+        "name":  "Clarifai",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.clarifai.com/v2/ext/openai/v1",
+        "keyUrl":  "https://docs.clarifai.com/compute/inference/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwenLM/models/Qwen3-30B-A3B-Thinking-2507",
+                         "qwen/qwenLM/models/Qwen3-30B-A3B-Instruct-2507",
+                         "qwen/qwenCoder/models/Qwen3-Coder-30B-A3B-Instruct",
+                         "clarifai/main/models/mm-poly-8b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CLARIFAI_PAT"
+                                 ]
+    },
+    {
+        "id":  "xpersona",
+        "name":  "Xpersona",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://www.xpersona.co/v1",
+        "keyUrl":  "https://www.xpersona.co/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-fable-5",
+                         "gpt-5.5",
+                         "claude-haiku-4-5",
+                         "gemini-3.5-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "XPERSONA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "aixy",
+        "name":  "Aixy",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.aixy-gateway.com/v1",
+        "keyUrl":  "https://docs.aixy-gateway.com/integrations/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini/gemini-3.8-flash",
+                         "gemini/gemini-4-argon",
+                         "anthropic/claude-haiku-5-5",
+                         "anthropic/claude-fable-5-1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AIXY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "nvidia",
+        "name":  "Nvidia",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://integrate.api.nvidia.com/v1",
+        "keyUrl":  "https://docs.api.nvidia.com/nim/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen-image",
+                         "qwen/qwen-image-edit",
+                         "nvidia/nemotron-3.5-content-safety",
+                         "nvidia/synthetic-video-detector"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NVIDIA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "zeldoc",
+        "name":  "Zeldoc",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.zeldoc.ai/v1",
+        "keyUrl":  "https://docs.zeldoc.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "zdev"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ZELDOC_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "arcee",
+        "name":  "Arcee",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.arcee.ai/api/v1",
+        "keyUrl":  "https://docs.arcee.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "trinity-large-thinking",
+                         "deepseek/deepseek-v4-flash-latest",
+                         "deepseek/deepseek-v4-pro",
+                         "deepseek/deepseek-v4.1-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ARCEE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "minimax-coding-plan",
+        "name":  "MiniMax Token Plan (minimax.io)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.minimax.io/anthropic/v1",
+        "keyUrl":  "https://platform.minimax.io/docs/token-plan/intro",
+        "keyRequired":  true,
+        "examples":  [
+                         "MiniMax-M3.1-Flash-Preview",
+                         "MiniMax-M2.7",
+                         "MiniMax-M3.1-Flash",
+                         "MiniMax-M2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MINIMAX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "engy",
+        "name":  "engy",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.engy.ai/v1",
+        "keyUrl":  "https://engy.ai/pricing",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "qwen3.6-35b-a3b",
+                         "glm-5.2",
+                         "deepseek-v4-flash-0731"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ENGY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "novita-ai",
+        "name":  "Novita AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.novita.ai/openai",
+        "keyUrl":  "https://novita.ai/docs/guides/introduction",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.6-35b-a3b",
+                         "qwen/qwen3.6-27b",
+                         "qwen/qwen3.8-2.4t-a95b",
+                         "qwen/qwen3.5-35b-a3b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NOVITA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tinfoil",
+        "name":  "Tinfoil",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.tinfoil.sh/v1",
+        "keyUrl":  "https://docs.tinfoil.sh",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-oss-safeguard-120b",
+                         "gpt-oss-120b",
+                         "glm-5-3",
+                         "deepseek-v4-1-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TINFOIL_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "stepfun-step-plan",
+        "name":  "StepFun Step Plan (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.stepfun.com/step_plan/v1",
+        "keyUrl":  "https://platform.stepfun.com/docs/zh/step-plan/integrations/reasoning-api",
+        "keyRequired":  true,
+        "examples":  [
+                         "step-5-preview",
+                         "step-3.5-flash-2603",
+                         "step-3.7-flash",
+                         "step-3.5-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "STEPFUN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "huggingface",
+        "name":  "Hugging Face",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://router.huggingface.co/v1",
+        "keyUrl":  "https://huggingface.co/docs/inference-providers",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-235B-A22B",
+                         "Qwen/Qwen3-VL-235B-A22B-Thinking",
+                         "Qwen/Qwen3-Embedding-8B",
+                         "Qwen/Qwen3-30B-A3B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "HF_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "xiaomi-token-plan-sgp",
+        "name":  "Xiaomi Token Plan (Singapore)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://token-plan-sgp.xiaomimimo.com/v1",
+        "keyUrl":  "https://platform.xiaomimimo.com/#/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "mimo-v2.6-pro",
+                         "mimo-v2.6-flash",
+                         "mimo-v2.5-tts-voiceclone",
+                         "mimo-v2.5-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "XIAOMI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "subconscious",
+        "name":  "Subconscious",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.subconscious.dev/v1",
+        "keyUrl":  "https://docs.subconscious.dev",
+        "keyRequired":  true,
+        "examples":  [
+                         "subconscious/deepseek-v4.1-flash-marathon",
+                         "subconscious/glm-5.3-marathon"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SUBCONSCIOUS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "vultr",
+        "name":  "Vultr",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.vultrinference.com/v1",
+        "keyUrl":  "https://api.vultrinference.com/",
+        "keyRequired":  true,
+        "examples":  [
+                         "nemotron-3.5-content-safety",
+                         "laguna-s-2.1",
+                         "glm-5.3",
+                         "glm-5.2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "VULTR_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "lynkr",
+        "name":  "Lynkr",
+        "kind":  "openai-compatible",
+        "baseUrl":  "http://127.0.0.1:8081/v1",
+        "keyUrl":  "https://github.com/Fast-Editor/Lynkr",
+        "keyRequired":  true,
+        "examples":  [
+                         "lynkr-auto"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LYNKR_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "neuralwatt",
+        "name":  "Neuralwatt",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.neuralwatt.com/v1",
+        "keyUrl":  "https://portal.neuralwatt.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "qwen3.6-35b",
+                         "qwen3.6-35b-fast",
+                         "deepseek-v4.1-flash-flex"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NEURALWATT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "sap-ai-core",
+        "name":  "SAP AI Core",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://help.sap.com/docs/sap-ai-core",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-4.1",
+                         "gpt-5.5",
+                         "anthropic--claude-4.5-sonnet",
+                         "sonar-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AICORE_SERVICE_KEY"
+                                 ]
+    },
+    {
+        "id":  "cloudflare-ai-gateway",
+        "name":  "Cloudflare AI Gateway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://developers.cloudflare.com/ai-gateway/",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek/deepseek-v4-pro",
+                         "reflection-ai/beam-1.0-501b-a23b",
+                         "moonshotai/kimi-k3",
+                         "minimax/m3.1-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CLOUDFLARE_API_TOKEN",
+                                     "CLOUDFLARE_ACCOUNT_ID",
+                                     "CLOUDFLARE_GATEWAY_ID"
+                                 ]
+    },
+    {
+        "id":  "orcarouter",
+        "name":  "OrcaRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.orcarouter.ai/v1",
+        "keyUrl":  "https://docs.orcarouter.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.5-plus",
+                         "qwen/qwen3.6-plus",
+                         "qwen/qwen3-vl-235b-a22b-instruct",
+                         "qwen/qwen3.6-35b-a3b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ORCAROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ai-router",
+        "name":  "AI-ROUTER",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.ai-router.dev/v1",
+        "keyUrl":  "https://ai-router.dev/openai-compatible-api-gateway/",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-5.5",
+                         "gpt-5.6-luna",
+                         "gpt-5.6-sol",
+                         "gpt-5.6-terra"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AI_ROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "google-vertex-anthropic",
+        "name":  "Vertex (Anthropic)",
+        "kind":  "vertex",
+        "baseUrl":  "",
+        "keyUrl":  "https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-opus-4-8@default",
+                         "claude-opus-5-5@default",
+                         "claude-sonnet-4-6@default",
+                         "claude-opus-4-7@default"
+                     ],
+        "confirmed":  true,
+        "notes":  "Скоро: нативный адаптер ещё не реализован.",
+        "environmentVariables":  [
+                                     "GOOGLE_VERTEX_PROJECT",
+                                     "GOOGLE_VERTEX_LOCATION",
+                                     "GOOGLE_APPLICATION_CREDENTIALS"
+                                 ]
+    },
+    {
+        "id":  "stepfun",
+        "name":  "StepFun (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.stepfun.com/v1",
+        "keyUrl":  "https://platform.stepfun.com/docs/zh/overview/concept",
+        "keyRequired":  true,
+        "examples":  [
+                         "stepaudio-2.5-asr",
+                         "step-5-preview",
+                         "step-3.5-flash-2603",
+                         "step-tts-2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "STEPFUN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "stackit",
+        "name":  "STACKIT",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.openai-compat.model-serving.eu01.onstackit.cloud/v1",
+        "keyUrl":  "https://docs.stackit.cloud/products/data-and-ai/ai-model-serving/basics/available-shared-models",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-VL-Embedding-8B",
+                         "Qwen/Qwen3.6-27B",
+                         "Qwen/Qwen3-VL-235B-A22B-Instruct-FP8",
+                         "cortecs/Llama-3.3-70B-Instruct-FP8-Dynamic"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "STACKIT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "salad-cloud",
+        "name":  "SaladCloud AI Gateway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.salad.com/ai-gateway/explanation/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3.6-35b-a3b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SALAD_CLOUD_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "llmgateway",
+        "name":  "DevPass (LLM Gateway)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.llmgateway.io/v1",
+        "keyUrl":  "https://llmgateway.io/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3-vl-plus",
+                         "llama-3.2-11b-instruct",
+                         "muse-wonder-1.0",
+                         "mistral-large-4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LLMGATEWAY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tensorx",
+        "name":  "TensorX",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.tensorx.ai/v1",
+        "keyUrl":  "https://docs.tensorx.ai/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.8-2.4t-a95b",
+                         "qwen/qwen3.8-flash-next",
+                         "qwen/qwen3.5-9b",
+                         "qwen/qwen3.5-122b-a10b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TENSORX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "alibaba-coding-plan",
+        "name":  "Alibaba Coding Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://coding-intl.dashscope.aliyuncs.com/v1",
+        "keyUrl":  "https://www.alibabacloud.com/help/en/model-studio/coding-plan",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-4.7",
+                         "qwen3-coder-next",
+                         "qwen3.5-plus",
+                         "qwen3.6-plus"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ALIBABA_CODING_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "runinfra",
+        "name":  "RunInfra",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.runinfra.ai/v1",
+        "keyUrl":  "https://runinfra.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-27B",
+                         "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+                         "Inferact/Qwen3.8-2.4T-A95B-NVFP4",
+                         "ornith-ai/Ornith-1.5-35B-A3B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "RUNINFRA_GATEWAY_KEY"
+                                 ]
+    },
+    {
+        "id":  "umans-ai-coding-plan",
+        "name":  "Umans AI Coding Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.code.umans.ai/v1",
+        "keyUrl":  "https://app.umans.ai/offers/code/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "umans-qwen3.6-35b-a3b",
+                         "umans-kimi-k3",
+                         "umans-deepseek-v4-flash-0731",
+                         "umans-deepseek-v4.1-flash-1017"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "UMANS_AI_CODING_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "jiekou",
+        "name":  "Jiekou.AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.jiekou.ai/openai",
+        "keyUrl":  "https://docs.jiekou.ai/docs/support/quickstart?utm_source=github_models.dev",
+        "keyRequired":  true,
+        "examples":  [
+                         "grok-4-1-fast-non-reasoning",
+                         "gpt-5.1",
+                         "gemini-3-flash-preview",
+                         "gemini-2.5-flash-lite"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "JIEKOU_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "zai-coding-plan",
+        "name":  "Z.AI Coding Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.z.ai/api/coding/paas/v4",
+        "keyUrl":  "https://docs.z.ai/devpack/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-4.7",
+                         "glm-5.3",
+                         "glm-5.2",
+                         "glm-5.3-highspeed"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ZHIPU_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "moonshotai",
+        "name":  "Moonshot AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.moonshot.ai/v1",
+        "keyUrl":  "https://platform.moonshot.ai/docs/api/chat",
+        "keyRequired":  true,
+        "examples":  [
+                         "kimi-k2.7-code",
+                         "kimi-k2.6",
+                         "kimi-k2.7-code-highspeed",
+                         "kimi-k3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MOONSHOT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "scaleway",
+        "name":  "Scaleway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.scaleway.ai/v1",
+        "keyUrl":  "https://www.scaleway.com/en/docs/generative-apis/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3-235b-a22b-instruct-2507",
+                         "glm-5.3",
+                         "qwen3.6-35b-a3b",
+                         "mistral-small-3.2-24b-instruct-2506"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SCALEWAY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "siliconflow",
+        "name":  "SiliconFlow",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.siliconflow.com/v1",
+        "keyUrl":  "https://cloud.siliconflow.com/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-VL-32B-Instruct",
+                         "Qwen/Qwen3-8B",
+                         "Qwen/Qwen3.5-397B-A17B",
+                         "Qwen/Qwen2.5-7B-Instruct"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SILICONFLOW_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "umans-ai",
+        "name":  "Umans AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.code.umans.ai/v1",
+        "keyUrl":  "https://app.umans.ai/offers/code/docs/orgs",
+        "keyRequired":  true,
+        "examples":  [
+                         "umans-kimi-k3",
+                         "umans-deepseek-v4-flash-0731",
+                         "umans-deepseek-v4.1-flash-1017",
+                         "umans-coder"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "UMANS_AI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "inference",
+        "name":  "Inference",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.net/v1",
+        "keyUrl":  "https://inference.net/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen-2.5-7b-vision-instruct",
+                         "qwen/qwen3-embedding-4b",
+                         "meta/llama-3.2-3b-instruct",
+                         "meta/llama-3.1-8b-instruct"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "INFERENCE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "standardcompute",
+        "name":  "Standard Compute",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.stdcmpt.com/v1",
+        "keyUrl":  "https://docs.standardcompute.com/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "standardcompute",
+                         "qwen/qwen3.8-max-0902",
+                         "qwen/qwen3.7-max",
+                         "qwen/qwen3.8-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "STANDARDCOMPUTE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "modular",
+        "name":  "Modular",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.modular.com/v1",
+        "keyUrl":  "https://docs.modular.com/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek/deepseek-v4.1-flash-1017",
+                         "minimax/minimax-m3",
+                         "MiniMaxAI/MiniMax-M3.1-Flash",
+                         "google/gemma-4-31b-it"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MODULAR_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "minimax",
+        "name":  "MiniMax (minimax.io)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.minimax.io/anthropic/v1",
+        "keyUrl":  "https://platform.minimax.io/docs/guides/quickstart",
+        "keyRequired":  true,
+        "examples":  [
+                         "MiniMax-M2.7",
+                         "MiniMax-M3.1-Flash",
+                         "MiniMax-M2",
+                         "MiniMax-M2.7-highspeed"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MINIMAX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "vancine",
+        "name":  "Vancine",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://vancine.com/v1",
+        "keyUrl":  "https://vancine.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "qwen3.8-flash",
+                         "deepseek-v4.1-flash",
+                         "qwen3.8-max"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "VANCINE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "greenpt",
+        "name":  "GreenPT",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.greenpt.ai/v1",
+        "keyUrl":  "https://docs.greenpt.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemma4",
+                         "qwen3-235b-a22b-instruct-2507",
+                         "glm-5.3",
+                         "qwen3.6-35b-a3b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "GREENPT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "opper",
+        "name":  "Opper",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.opper.ai/v3/compat",
+        "keyUrl":  "https://opper.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-4-5",
+                         "claude-fable-5",
+                         "gpt-5.5",
+                         "qwen3-coder-next"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OPPER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "lmstudio",
+        "name":  "LMStudio",
+        "kind":  "openai-compatible",
+        "baseUrl":  "http://localhost:1234/v1",
+        "keyUrl":  "https://lmstudio.ai/models",
+        "keyRequired":  false,
+        "examples":  [
+                         "qwen/qwen3-coder-30b",
+                         "qwen/qwen3-30b-a3b-2507",
+                         "openai/gpt-oss-20b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LMSTUDIO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "anthropic",
+        "name":  "Anthropic",
+        "kind":  "anthropic",
+        "baseUrl":  "https://api.anthropic.com",
+        "keyUrl":  "https://docs.anthropic.com/en/docs/about-claude/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-4-5",
+                         "claude-fable-5",
+                         "claude-haiku-5-5",
+                         "claude-haiku-4-5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ANTHROPIC_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "submodel",
+        "name":  "submodel",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://llm.submodel.ai/v1",
+        "keyUrl":  "https://submodel.gitbook.io",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-235B-A22B-Thinking-2507",
+                         "Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8",
+                         "Qwen/Qwen3-235B-A22B-Instruct-2507",
+                         "openai/gpt-oss-120b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SUBMODEL_INSTAGEN_ACCESS_KEY"
+                                 ]
+    },
+    {
+        "id":  "dinference",
+        "name":  "DInference",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.dinference.com/v1",
+        "keyUrl":  "https://dinference.com",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-4.7",
+                         "glm-5.2",
+                         "gpt-oss-120b",
+                         "glm-5.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DINFERENCE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "coralbricks",
+        "name":  "CoralBricks",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.coralbricks.ai/v1",
+        "keyUrl":  "https://www.coralbricks.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek-v4.1-flash-fast"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CORAL_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "databricks",
+        "name":  "Databricks",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://${DATABRICKS_HOST}/ai-gateway/mlflow/v1",
+        "keyUrl":  "https://docs.databricks.com/aws/en/machine-learning/foundation-models/",
+        "keyRequired":  true,
+        "examples":  [
+                         "databricks-gemini-3-pro",
+                         "databricks-gpt-oss-20b",
+                         "databricks-claude-sonnet-4-6",
+                         "databricks-glm-5-2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DATABRICKS_HOST",
+                                     "DATABRICKS_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "watsonx",
+        "name":  "watsonx.ai",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://www.ibm.com/docs/en/watsonx/saas?topic=solutions-supported-foundation-models",
+        "keyRequired":  true,
+        "examples":  [
+                         "mistralai/mistral-small-3-1-24b-instruct-2503",
+                         "openai/gpt-oss-120b",
+                         "ibm/granite-4-h-small",
+                         "meta-llama/llama-3-3-70b-instruct"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "WATSONX_AI_APIKEY",
+                                     "WATSONX_AI_PROJECT_ID"
+                                 ]
+    },
+    {
+        "id":  "fastrouter",
+        "name":  "FastRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://go.fastrouter.ai/api/v1",
+        "keyUrl":  "https://fastrouter.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek/deepseek-v4-pro",
+                         "sarvam/sarvam-105b",
+                         "leonardo-ai/lucid-origin",
+                         "leonardo-ai/lucid-realism"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "FASTROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "qvac",
+        "name":  "QVAC",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://www.npmjs.com/package/@qvac/ai-sdk-provider",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3.5-2b",
+                         "qwen3.5-0.8b",
+                         "gpt-oss-20b",
+                         "qwen3.6-35b-a3b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "QVAC_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "cortecs",
+        "name":  "Cortecs",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.cortecs.ai/v1",
+        "keyUrl":  "https://api.cortecs.ai/v1/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-5.5",
+                         "gpt-4.1",
+                         "glm-4.7-flash",
+                         "gpt-5.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CORTECS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "chutes",
+        "name":  "Chutes",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://llm.chutes.ai/v1",
+        "keyUrl":  "https://llm.chutes.ai/v1/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-Max-0902",
+                         "Qwen/Qwen3.8-2.4T-A95B",
+                         "Qwen/Qwen3.5-397B-A17B-TEE",
+                         "Qwen/Qwen3.6-27B-TEE"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CHUTES_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tokenrouter",
+        "name":  "TokenRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.tokenrouter.com/v1",
+        "keyUrl":  "https://www.tokenrouter.com/docs/tokenrouter-feature-guide/",
+        "keyRequired":  true,
+        "examples":  [
+                         "z-ai/glm-5.3-free"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TOKENROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "sensenova",
+        "name":  "SenseNova (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://token.sensenova.cn/v1",
+        "keyUrl":  "https://platform.sensenova.cn/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek-v4-pro",
+                         "glm-5.2",
+                         "deepseek-v4-flash",
+                         "deepseek-v4.1-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SENSENOVA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "nano-gpt",
+        "name":  "NanoGPT",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://nano-gpt.com/api/v1",
+        "keyUrl":  "https://docs.nano-gpt.com",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-3-pro-image-preview",
+                         "gemma-4-12b-it-semancer",
+                         "GLM-4.6-Derestricted-v5",
+                         "ernie-5.0-thinking-preview"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NANO_GPT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "hpc-ai",
+        "name":  "HPC-AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.hpc-ai.com/inference/v1",
+        "keyUrl":  "https://www.hpc-ai.com/doc/docs/quickstart/",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek/deepseek-v4-pro",
+                         "deepseek/deepseek-v4-flash",
+                         "moonshotai/kimi-k2.7-code",
+                         "moonshotai/kimi-k2.5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "HPC_AI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "scnet-token-plan",
+        "name":  "SCNet Token Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.scnet.cn/api/llm/v1",
+        "keyUrl":  "https://www.scnet.cn/ac/openapi/doc/2.0/moduleapi/plans/token-plan.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "DeepSeek-V4-Flash",
+                         "MiniMax-M2.7",
+                         "Qwen3.8-Flash",
+                         "GLM-5.3-Flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SCNET_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "zhipuai-coding-plan",
+        "name":  "Zhipu AI Coding Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://open.bigmodel.cn/api/coding/paas/v4",
+        "keyUrl":  "https://docs.bigmodel.cn/cn/coding-plan/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-4.6v",
+                         "glm-5.3",
+                         "glm-5.3-highspeed",
+                         "glm-5.3-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ZHIPU_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "pendra",
+        "name":  "Pendra",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.pendra.ai/api/v1",
+        "keyUrl":  "https://pendra.ai/docs/integrations/opencode",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3.6:27b",
+                         "glm-4.7-flash",
+                         "gpt-oss:120b",
+                         "deepseek-v4-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "PENDRA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "bailing",
+        "name":  "Bailing",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.tbox.cn/api/llm/v1",
+        "keyUrl":  "https://alipaytbox.yuque.com/sxs0ba/ling/intro",
+        "keyRequired":  true,
+        "examples":  [
+                         "Ling-1T",
+                         "Ring-1T"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "BAILING_API_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "pioneer",
+        "name":  "Pioneer",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.fastino.ai/v1",
+        "keyUrl":  "https://agent.pioneer.ai/llms.txt",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-fable-5",
+                         "gpt-5.5",
+                         "claude-haiku-4-5",
+                         "claude-opus-5-fast"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "PIONEER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "xiaomi-token-plan-ams",
+        "name":  "Xiaomi Token Plan (Europe)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://token-plan-ams.xiaomimimo.com/v1",
+        "keyUrl":  "https://platform.xiaomimimo.com/#/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "mimo-v2.6-pro",
+                         "mimo-v2.6-flash",
+                         "mimo-v2.5-tts-voiceclone",
+                         "mimo-v2.5-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "XIAOMI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "atomic-chat",
+        "name":  "Atomic Chat",
+        "kind":  "openai-compatible",
+        "baseUrl":  "http://127.0.0.1:1337/v1",
+        "keyUrl":  "https://atomic.chat",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen3_5-9B-Q4_K_M",
+                         "Qwen3_5-9B-MLX-4bit",
+                         "gemma-4-E4B-it-MLX-4bit",
+                         "Meta-Llama-3_1-8B-Instruct-GGUF"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ATOMIC_CHAT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "baseten",
+        "name":  "Baseten",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.baseten.co/v1",
+        "keyUrl":  "https://docs.baseten.co/inference/model-apis/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B",
+                         "moonshotai/Kimi-K3",
+                         "moonshotai/Kimi-K3.1-Pro",
+                         "openai/gpt-oss-120b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "BASETEN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "opencode",
+        "name":  "OpenCode",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://opencode.ai/inference/openai/v1",
+        "keyUrl":  "https://opencode.ai/v2/docs/console/models/",
+        "keyRequired":  true,
+        "examples":  [
+                         "trinity-large-preview-free",
+                         "muse-wonder-1.0",
+                         "hy3-preview-free",
+                         "mistral-large-4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OPENCODE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "snowflake-cortex",
+        "name":  "Snowflake Cortex",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://${SNOWFLAKE_ACCOUNT}.snowflakecomputing.com/api/v2/cortex/v1",
+        "keyUrl":  "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-rest-api",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-4-5",
+                         "claude-fable-5",
+                         "claude-haiku-4-5",
+                         "openai-gpt-5.5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SNOWFLAKE_ACCOUNT",
+                                     "SNOWFLAKE_CORTEX_PAT"
+                                 ]
+    },
+    {
+        "id":  "gmicloud",
+        "name":  "GMI Cloud",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.gmi-serving.com/v1",
+        "keyUrl":  "https://docs.gmicloud.ai/inference-engine/api-reference/llm-api-reference",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-Flash",
+                         "Qwen/Qwen3.8-Max",
+                         "Qwen/Qwen3.7-Max",
+                         "moonshotai/kimi-k2.7-code-highspeed"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "GMICLOUD_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ofox",
+        "name":  "Ofox",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.ofox.ai/v1",
+        "keyUrl":  "https://ofox.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.6-max-preview",
+                         "qwen/qwen-vl-max",
+                         "qwen/qwen3-coder-next",
+                         "qwen/qwen3.5-plus"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OFOX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ovhcloud",
+        "name":  "OVHcloud AI Endpoints",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
+        "keyUrl":  "https://www.ovhcloud.com/en/public-cloud/ai-endpoints/catalog//",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-oss-20b",
+                         "qwen3.6-27b",
+                         "mistral-small-3.2-24b-instruct-2506",
+                         "gpt-oss-120b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OVHCLOUD_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "mixlayer",
+        "name":  "Mixlayer",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://models.mixlayer.ai/v1",
+        "keyUrl":  "https://docs.mixlayer.com",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.5-35b-a3b",
+                         "qwen/qwen3.5-9b",
+                         "qwen/qwen3.5-122b-a10b",
+                         "qwen/qwen3.5-27b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MIXLAYER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tencent-coding-plan",
+        "name":  "Tencent Coding Plan (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.lkeap.cloud.tencent.com/coding/v3",
+        "keyUrl":  "https://cloud.tencent.com/document/product/1772/128947",
+        "keyRequired":  true,
+        "examples":  [
+                         "hunyuan-t1",
+                         "hunyuan-2.0-instruct",
+                         "kimi-k2.5",
+                         "hunyuan-2.0-thinking"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TENCENT_CODING_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tempr",
+        "name":  "Tempr Gateway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.temprhq.io/v1",
+        "keyUrl":  "https://temprhq.io/docs/gateway-reference.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek/deepseek-v4-pro",
+                         "deepseek/deepseek-flash",
+                         "minimax/MiniMax-M2.7",
+                         "minimax/MiniMax-M2.7-highspeed"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TEMPR_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "abacus",
+        "name":  "Abacus",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://routellm.abacus.ai/v1",
+        "keyUrl":  "https://abacus.ai/help/api",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-3-pro-image-preview",
+                         "grok-4-1-fast-non-reasoning",
+                         "claude-fable-5",
+                         "gpt-4.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ABACUS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "vercel",
+        "name":  "Vercel AI Gateway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://github.com/vercel/ai/tree/5eb85cc45a259553501f535b8ac79a77d0e79223/packages/gateway",
+        "keyRequired":  true,
+        "examples":  [
+                         "morph/morph-v3-fast",
+                         "morph/morph-v3-large",
+                         "deepseek/deepseek-v3.2-thinking",
+                         "deepseek/deepseek-v4.1-flash-1017-fast"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AI_GATEWAY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "deepinfra",
+        "name":  "Deep Infra",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://deepinfra.com/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-Flash",
+                         "Qwen/Qwen3-30B-A3B",
+                         "Qwen/Qwen3.5-397B-A17B",
+                         "Qwen/Qwen3.8-27B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DEEPINFRA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "nan",
+        "name":  "NaN",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.nan.builders/v1",
+        "keyUrl":  "https://nan.builders/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm5.3",
+                         "gemma4",
+                         "deepseek-v4-flash",
+                         "qwen-image-2.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "perplexity-agent",
+        "name":  "Perplexity Agent",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.perplexity.ai/v1",
+        "keyUrl":  "https://docs.perplexity.ai/docs/agent-api/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek/deepseek-v4-flash-0731",
+                         "moonshot-ai/kimi-k2.7-code",
+                         "moonshot-ai/kimi-k3",
+                         "nvidia/nemotron-3-super-120b-a12b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "PERPLEXITY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "requesty",
+        "name":  "Requesty",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://router.requesty.ai/v1",
+        "keyUrl":  "https://requesty.ai/solution/llm-routing/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3.5-2b",
+                         "gpt-4.1-nano@eu",
+                         "deepseek-v4.1-flash@eu",
+                         "ling-2.6-1t"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "REQUESTY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ebcloud",
+        "name":  "EBCloud",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://maas-api.ebcloud.com/v1",
+        "keyUrl":  "https://docs.ebtech.com/ai/model-api.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "DeepSeek-V4-Flash",
+                         "GLM-5.1",
+                         "DeepSeek-V4-Pro",
+                         "Kimi-K2.6"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "EBCLOUD_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tencent-token-plan",
+        "name":  "Tencent Token Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.lkeap.cloud.tencent.com/plan/v3",
+        "keyUrl":  "https://cloud.tencent.com/document/product/1823/130060",
+        "keyRequired":  true,
+        "examples":  [
+                         "hy3",
+                         "hy4-preview",
+                         "hy4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TENCENT_TOKEN_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "meta",
+        "name":  "Meta",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.meta.ai/v1",
+        "keyUrl":  "https://dev.meta.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "muse-wonder-1.0",
+                         "muse-spark-1.2-contributor",
+                         "muse-spark-1.3-contributor",
+                         "muse-spark-1.3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "META_MODEL_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "llmgateway-providers",
+        "name":  "LLM Gateway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.llmgateway.io/v1",
+        "keyUrl":  "https://llmgateway.io/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "canopywave/glm-5.2",
+                         "canopywave/minimax-m3.1-flash",
+                         "canopywave/kimi-k2.6",
+                         "canopywave/qwen3.8-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LLMGATEWAY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "opencode-go",
+        "name":  "OpenCode Go",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://opencode.ai/inference/go/openai/v1",
+        "keyUrl":  "https://opencode.ai/v2/docs/console/go/",
+        "keyRequired":  true,
+        "examples":  [
+                         "space-bunny",
+                         "claude-haiku-5-5",
+                         "step-5-preview-free",
+                         "step-5-preview"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OPENCODE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "wandb",
+        "name":  "CoreWeave",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.inference.wandb.ai/v1",
+        "keyUrl":  "https://docs.wandb.ai/inference",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-27B",
+                         "Qwen/Qwen3.6-35B-A3B",
+                         "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B",
+                         "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "WANDB_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "evroc",
+        "name":  "evroc",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://models.think.evroc.com/v1",
+        "keyUrl":  "https://docs.evroc.com/products/think/overview.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "KBLab/kb-whisper-large",
+                         "Qwen/Qwen3-Embedding-8B",
+                         "Qwen/Qwen3.8-27B",
+                         "Qwen/Qwen3.6-35B-A3B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "EVROC_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "google-vertex",
+        "name":  "Vertex",
+        "kind":  "vertex",
+        "baseUrl":  "",
+        "keyUrl":  "https://cloud.google.com/vertex-ai/generative-ai/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-nano-banana-2.1",
+                         "gemini-2.5-pro-tts",
+                         "gemini-3-pro-image",
+                         "gemini-3-flash-preview"
+                     ],
+        "confirmed":  true,
+        "notes":  "Скоро: нативный адаптер ещё не реализован.",
+        "environmentVariables":  [
+                                     "GOOGLE_VERTEX_PROJECT",
+                                     "GOOGLE_VERTEX_LOCATION",
+                                     "GOOGLE_APPLICATION_CREDENTIALS"
+                                 ]
+    },
+    {
+        "id":  "openai",
+        "name":  "OpenAI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.openai.com/v1",
+        "keyUrl":  "https://platform.openai.com/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "o1-pro",
+                         "gpt-4.1",
+                         "gpt-5.5",
+                         "o1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OPENAI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "lucidquery",
+        "name":  "LucidQuery",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.lucidquery.com/v1",
+        "keyUrl":  "https://lucidquery.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "lucidquery-agi-01-frontier",
+                         "lucidnova-rf1-100b",
+                         "lucidquery-agi-01-swift",
+                         "lucidquery-nexus-coder"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LUCIDQUERY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "hyper",
+        "name":  "Charm Hyper",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://hyper.charm.land/v1",
+        "keyUrl":  "https://hyper.charm.land",
+        "keyRequired":  true,
+        "examples":  [
+                         "kimi-k2-thinking",
+                         "glm-5.3",
+                         "glm-5.2",
+                         "gpt-oss-120b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "HYPER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "xiaomi-token-plan-cn",
+        "name":  "Xiaomi Token Plan (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://token-plan-cn.xiaomimimo.com/v1",
+        "keyUrl":  "https://platform.xiaomimimo.com/#/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "mimo-v2.5-tts-voicedesign",
+                         "mimo-v2.5",
+                         "mimo-v2.5-tts",
+                         "mimo-v2.5-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "XIAOMI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "qiniu-ai",
+        "name":  "Qiniu",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.qnaigc.com/v1",
+        "keyUrl":  "https://developer.qiniu.com/aitokenapi",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-3.0-pro-preview",
+                         "gemini-2.0-flash",
+                         "gemini-3.0-pro-image-preview",
+                         "doubao-1.5-thinking-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "QINIU_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "jalapeno",
+        "name":  "Jalapeno Cloud",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.jalapeno-cloud.ai/v1",
+        "keyUrl":  "https://www.jalapeno-cloud.ai/docs/",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen3-Next-80B-A3B-Thinking",
+                         "Qwen3-VL-235B-A22B-Thinking",
+                         "DeepSeek-V4-Flash",
+                         "Qwen3.5-397B-A17B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "JALAPENO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "unorouter",
+        "name":  "UnoRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.unorouter.com/v1",
+        "keyUrl":  "https://unorouter.com/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-5.5",
+                         "gemini-3.5-flash",
+                         "nemotron-3-ultra-550b-a55b:free",
+                         "deepseek-v4-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "UNOROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "synthetic",
+        "name":  "Synthetic",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.synthetic.new/openai/v1",
+        "keyUrl":  "https://synthetic.new/pricing",
+        "keyRequired":  true,
+        "examples":  [
+                         "hf:nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-NVFP4",
+                         "hf:Qwen/Qwen3.6-27B",
+                         "hf:deepseek-ai/DeepSeek-V4.1-Flash",
+                         "hf:deepseek-ai/DeepSeek-V4.1-Flash-1017"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SYNTHETIC_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "inception",
+        "name":  "Inception",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.inceptionlabs.ai/v1/",
+        "keyUrl":  "https://docs.inceptionlabs.ai/get-started/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "mercury-2.5",
+                         "mercury-edit-2",
+                         "mercury-3",
+                         "mercury-2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "INCEPTION_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "merge-gateway",
+        "name":  "Merge Gateway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api-gateway.merge.dev/v1/ai-sdk",
+        "keyUrl":  "https://docs.merge.dev/merge-gateway",
+        "keyRequired":  true,
+        "examples":  [
+                         "writer/palmyra-x4",
+                         "writer/palmyra-x5",
+                         "qwen/qwen3-vl-plus",
+                         "qwen/qwen3.6-max-preview"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MERGE_GATEWAY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "amazon-bedrock",
+        "name":  "Amazon Bedrock",
+        "kind":  "bedrock",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.aws.amazon.com/bedrock/latest/userguide/models-supported.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "jp.anthropic.claude-opus-5",
+                         "global.anthropic.claude-opus-4-5-20251101-v1:0",
+                         "us.meta.llama4-scout-17b-instruct-v1:0",
+                         "us.amazon.nova-premier-v1:0"
+                     ],
+        "confirmed":  true,
+        "notes":  "Скоро: нативный адаптер ещё не реализован.",
+        "environmentVariables":  [
+                                     "AWS_ACCESS_KEY_ID",
+                                     "AWS_SECRET_ACCESS_KEY",
+                                     "AWS_REGION",
+                                     "AWS_BEARER_TOKEN_BEDROCK"
+                                 ]
+    },
+    {
+        "id":  "wafer.ai",
+        "name":  "Wafer",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://pass.wafer.ai/v1",
+        "keyUrl":  "https://docs.wafer.ai/wafer-pass",
+        "keyRequired":  true,
+        "examples":  [
+                         "GLM-5.1",
+                         "GLM-5.2",
+                         "glm5.2-fast",
+                         "Kimi-K2.6"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "WAFER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "oci",
+        "name":  "OCI Generative AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.generativeai.us-chicago-1.oci.oraclecloud.com/openai/v1",
+        "keyUrl":  "https://docs.oracle.com/en-us/iaas/Content/generative-ai/pretrained-models.htm",
+        "keyRequired":  true,
+        "examples":  [
+                         "meta.llama-4-maverick-17b-128e-instruct-fp8",
+                         "xai.grok-4.3",
+                         "openai.gpt-oss-120b",
+                         "xai.grok-4.20-non-reasoning"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OCI_GENAI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "neosmith",
+        "name":  "NeoSmith",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://router.neosmith.ai/v1",
+        "keyUrl":  "https://neosmith.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "neosmith.intelligent-pro",
+                         "neosmith.neolite",
+                         "neosmith.intelligent-maestro",
+                         "neosmith.intelligent-basic"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NEOSMITH_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "routing-run",
+        "name":  "routing.run",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.routing.run/v1",
+        "keyUrl":  "https://docs.routing.run/api-reference/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "kimi-k2.7-code-nitro",
+                         "kimi-k2.6-nitro",
+                         "deepseek-v4-pro",
+                         "glm-5.2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ROUTING_RUN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "melious",
+        "name":  "Melious",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.melious.ai/v1",
+        "keyUrl":  "https://melious.ai/docs/reference/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "kimi-k2.7-code",
+                         "deepseek-v4-flash-0731",
+                         "kimi-k2.6"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MELIOUS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "kuae-cloud-coding-plan",
+        "name":  "KUAE Cloud Coding Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://coding-plan-endpoint.kuaecloud.net/v1",
+        "keyUrl":  "https://docs.mthreads.com/kuaecloud/kuaecloud-doc-online/coding_plan/",
+        "keyRequired":  true,
+        "examples":  [
+                         "GLM-4.7"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "KUAE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "upstage",
+        "name":  "Upstage",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.upstage.ai/v1/solar",
+        "keyUrl":  "https://developers.upstage.ai/docs/apis/chat",
+        "keyRequired":  true,
+        "examples":  [
+                         "solar-pro4",
+                         "solar-mini",
+                         "solar-pro3",
+                         "solar-mini4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "UPSTAGE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "alibaba-coding-plan-cn",
+        "name":  "Alibaba Coding Plan (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://coding.dashscope.aliyuncs.com/v1",
+        "keyUrl":  "https://help.aliyun.com/zh/model-studio/coding-plan",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-4.7",
+                         "qwen3-coder-next",
+                         "qwen3.5-plus",
+                         "qwen3.6-plus"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ALIBABA_CODING_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "siliconflow-cn",
+        "name":  "SiliconFlow (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.siliconflow.cn/v1",
+        "keyUrl":  "https://cloud.siliconflow.com/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-VL-32B-Instruct",
+                         "Qwen/Qwen3-8B",
+                         "Qwen/Qwen3.8-27B",
+                         "Qwen/Qwen2.5-7B-Instruct"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SILICONFLOW_CN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "friendli",
+        "name":  "Friendli",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.friendli.ai/serverless/v1",
+        "keyUrl":  "https://friendli.ai/docs/guides/serverless_endpoints/introduction",
+        "keyRequired":  true,
+        "examples":  [
+                         "zai-org/GLM-5.3-Flash",
+                         "zai-org/GLM-5.1",
+                         "zai-org/GLM-5.2",
+                         "zai-org/GLM-5.3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "FRIENDLI_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "model-oracle-ai",
+        "name":  "Model Oracle AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.modeloracle.com/api/v1",
+        "keyUrl":  "https://modeloracle.com/setup/",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-fable-5",
+                         "gpt-4.1",
+                         "gpt-5.5",
+                         "o4-mini"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MODEL_ORACLE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "infer",
+        "name":  "Infer by Flow7",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://infer.flow7.org/v1",
+        "keyUrl":  "https://infer.flow7.org/opencode",
+        "keyRequired":  true,
+        "examples":  [
+                         "infer/gpt-6-astra:official",
+                         "infer/gpt-5.6-sol:official"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "INFER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "blueclaw",
+        "name":  "Blue Claw",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://openai.blueclaw.network/v1",
+        "keyUrl":  "https://blueclaw.network",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen3.8-27B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "BLUECLAW_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "frogbot",
+        "name":  "FrogBot",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://app.frogbot.ai/api/v1",
+        "keyUrl":  "https://docs.frogbot.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-5-4-mini",
+                         "grok-4-1-fast-non-reasoning",
+                         "gemini-3-flash-preview",
+                         "claude-haiku-4-5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "FROGBOT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "meganova",
+        "name":  "Meganova",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.meganova.ai/v1",
+        "keyUrl":  "https://docs.meganova.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen2.5-VL-32B-Instruct",
+                         "Qwen/Qwen3-235B-A22B-Instruct-2507",
+                         "Qwen/Qwen3.5-Plus",
+                         "moonshotai/Kimi-K2.5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MEGANOVA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "nebius",
+        "name":  "Nebius Token Factory",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.tokenfactory.nebius.com/v1",
+        "keyUrl":  "https://docs.tokenfactory.nebius.com/",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-Embedding-8B",
+                         "Qwen/Qwen3.5-397B-A17B",
+                         "Qwen/Qwen3.8-27B",
+                         "Qwen/Qwen3-235B-A22B-Instruct-2507"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NEBIUS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "edenai",
+        "name":  "Eden AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.edenai.run/v3",
+        "keyUrl":  "https://docs.edenai.co",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek-v4-flash-vision-exp",
+                         "together_ai/meta-models/Muse-Glimmer-30B",
+                         "together_ai/openai/gpt-oss-120b",
+                         "together_ai/thinkingmachines/Inkling"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "EDENAI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "xai",
+        "name":  "xAI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.x.ai/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "grok-4.5",
+                         "grok-imagine-video",
+                         "grok-4.20-0309-reasoning",
+                         "grok-build-0.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "XAI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "google",
+        "name":  "Google",
+        "kind":  "gemini-native",
+        "baseUrl":  "https://generativelanguage.googleapis.com/v1beta/openai",
+        "keyUrl":  "https://ai.google.dev/gemini-api/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-omni-flash-preview",
+                         "gemini-3-pro-image",
+                         "gemini-3-flash-preview",
+                         "gemini-embedding-2"
+                     ],
+        "confirmed":  true,
+        "notes":  "Скоро: нативный адаптер ещё не реализован.",
+        "environmentVariables":  [
+                                     "GOOGLE_API_KEY",
+                                     "GOOGLE_GENERATIVE_AI_API_KEY",
+                                     "GEMINI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "cloudferro-sherlock",
+        "name":  "CloudFerro Sherlock",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api-sherlock.cloudferro.com/openai/v1/",
+        "keyUrl":  "https://docs.sherlock.cloudferro.com/",
+        "keyRequired":  true,
+        "examples":  [
+                         "MiniMaxAI/MiniMax-M2.5",
+                         "openai/gpt-oss-120b",
+                         "meta-llama/Llama-3.3-70B-Instruct",
+                         "speakleash/Bielik-11B-v3.0-Instruct"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CLOUDFERRO_SHERLOCK_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "kimi-code-plan-global",
+        "name":  "Kimi For Coding (kimi.ai)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.kimi.ai/coding/v1",
+        "keyUrl":  "https://www.kimi.ai/code/docs/en/kimi-code/models.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "k3",
+                         "k3-256k",
+                         "k3.1-pro-highspeed",
+                         "kimi-for-coding"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "KIMI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "scx-ai",
+        "name":  "SCX.ai",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.scx.ai/v1",
+        "keyUrl":  "https://platform.scx.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "MiniMax-M2.7",
+                         "gpt-oss-120b",
+                         "GLM-5.2",
+                         "Qwen3.8-Max"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SCX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "volcengine-coding-plan",
+        "name":  "Volcengine Ark Coding Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://ark.cn-beijing.volces.com/api/coding/v3",
+        "keyUrl":  "https://www.volcengine.com/docs/82379/1928261",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "deepseek-v4-pro",
+                         "doubao-seed-2.0-lite",
+                         "kimi-k2.7-code"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ARK_CODING_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "berget",
+        "name":  "Berget.AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.berget.ai/v1",
+        "keyUrl":  "https://api.berget.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-27B-FP8",
+                         "moonshotai/Kimi-K3",
+                         "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+                         "zai-org/GLM-5.3-Flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "BERGET_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "auriko",
+        "name":  "Auriko",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.auriko.ai/v1",
+        "keyUrl":  "https://docs.auriko.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-2.5-pro",
+                         "deepseek-v4-pro",
+                         "claude-opus-4-6",
+                         "qwen-3.6-plus"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AURIKO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "stepfun-ai-step-plan",
+        "name":  "StepFun Step Plan (Global)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.stepfun.ai/step_plan/v1",
+        "keyUrl":  "https://platform.stepfun.ai/docs/en/step-plan/integrations/reasoning-api",
+        "keyRequired":  true,
+        "examples":  [
+                         "step-5-preview",
+                         "step-3.5-flash-2603",
+                         "step-3.7-flash",
+                         "step-3.5-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "STEPFUN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "inceptron",
+        "name":  "Inceptron",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.inceptron.io/v1",
+        "keyUrl":  "https://docs.inceptron.io",
+        "keyRequired":  true,
+        "examples":  [
+                         "moonshotai/Kimi-K2.7-Code",
+                         "moonshotai/Kimi-K2.6",
+                         "zai-org/GLM-5.3-Flash",
+                         "zai-org/GLM-5.2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "INCEPTRON_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "echo",
+        "name":  "Echo",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://echo.tracerml.ai/v1",
+        "keyUrl":  "https://echo.tracerml.ai/docs/api",
+        "keyRequired":  true,
+        "examples":  [
+                         "echo"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ECHO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "gitlab",
+        "name":  "GitLab Duo",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.gitlab.com/user/duo_agent_platform/",
+        "keyRequired":  true,
+        "examples":  [
+                         "duo-chat-opus-4-8",
+                         "duo-chat-gpt-5-3-codex",
+                         "duo-chat-haiku-4-5",
+                         "duo-chat-opus-4-7"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "GITLAB_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "ollama-cloud",
+        "name":  "Ollama Cloud",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://ollama.com/v1",
+        "keyUrl":  "https://docs.ollama.com/cloud",
+        "keyRequired":  true,
+        "examples":  [
+                         "mistral-large-4",
+                         "beam",
+                         "glm-5.3",
+                         "nemotron-3-nano:30b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OLLAMA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "alibaba",
+        "name":  "Alibaba",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+        "keyUrl":  "https://www.alibabacloud.com/help/en/model-studio/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3-vl-plus",
+                         "qwen-omni-turbo",
+                         "qwen3-omni-flash",
+                         "qwen3.6-max-preview"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DASHSCOPE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "prime",
+        "name":  "Prime Inference",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.pinference.ai/api/v1",
+        "keyUrl":  "https://docs.primeintellect.ai/inference/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3-coder-next",
+                         "qwen/qwen3-vl-235b-a22b-instruct",
+                         "qwen/qwen3.8-27b",
+                         "qwen/qwen3-30b-a3b-instruct-2507"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "PRIME_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "openreason",
+        "name":  "OpenReason",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.openreason.app/v1",
+        "keyUrl":  "https://openreason.app/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "moonshotai/kimi-k2.7-code",
+                         "openai/gpt-oss-120b",
+                         "deepseek-ai/deepseek-v4-flash-0731"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OPENREASON_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "anyapi",
+        "name":  "AnyAPI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.anyapi.ai/v1",
+        "keyUrl":  "https://docs.anyapi.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek/deepseek-v4-pro",
+                         "deepseek/deepseek-r1",
+                         "deepseek/deepseek-chat",
+                         "deepseek/deepseek-v4-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ANYAPI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "infomaniak",
+        "name":  "Infomaniak",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.infomaniak.com/2/ai/${INFOMANIAK_PRODUCT_ID}/openai/v1",
+        "keyUrl":  "https://www.infomaniak.com/en/hosting/ai-services/open-source-models",
+        "keyRequired":  true,
+        "examples":  [
+                         "mini_lm_l12_v2",
+                         "bge_multilingual_gemma2",
+                         "Qwen/Qwen3.5-397B-A17B-FP8",
+                         "Qwen/Qwen3.5-122B-A10B-FP8"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "INFOMANIAK_API_KEY",
+                                     "INFOMANIAK_PRODUCT_ID"
+                                 ]
+    },
+    {
+        "id":  "cohere",
+        "name":  "Cohere",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.cohere.com/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "command-a-reasoning-08-2025",
+                         "command-r-08-2024",
+                         "command-a-03-2025",
+                         "command-a-vision-07-2025"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "COHERE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "aimlapi",
+        "name":  "AI/ML API",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.aimlapi.com/v1",
+        "keyUrl":  "https://docs.aimlapi.com",
+        "keyRequired":  true,
+        "examples":  [
+                         "aion-labs/aion-rp-llama-3.1-8b",
+                         "morph/morph-v3-large",
+                         "morph/morph-v3-fast",
+                         "deepseek/deepseek-v4-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AIMLAPI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "kilo",
+        "name":  "Kilo Gateway",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.kilo.ai/api/gateway",
+        "keyUrl":  "https://kilo.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "aion-labs/aion-2.0",
+                         "aion-labs/aion-3.0",
+                         "aion-labs/aion-3.0-mini",
+                         "aion-labs/aion-rp-llama-3.1-8b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "KILO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "alibaba-token-plan",
+        "name":  "Alibaba Token Plan",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://token-plan.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+        "keyUrl":  "https://www.alibabacloud.com/help/en/model-studio/token-plan-overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3.6-plus",
+                         "wan2.7-image",
+                         "glm-5.3",
+                         "deepseek-v4-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ALIBABA_TOKEN_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "liquid",
+        "name":  "Liquid Inference",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://router.inference.ai.exchange/v1",
+        "keyUrl":  "https://inference.ai.exchange/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "liquid.auto"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LIQUID_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ai21",
+        "name":  "AI21 Labs",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.ai21.com/studio/v1",
+        "keyUrl":  "https://docs.ai21.com/docs/jamba-foundation-models",
+        "keyRequired":  true,
+        "examples":  [
+                         "jamba-mini",
+                         "jamba-large"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AI21_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "volcengine",
+        "name":  "Volcengine Ark",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://ark.cn-beijing.volces.com/api/v3",
+        "keyUrl":  "https://www.volcengine.com/docs/82379/1330310",
+        "keyRequired":  true,
+        "examples":  [
+                         "doubao-seed-2-1-pro-260628",
+                         "doubao-seed-2-0-mini-260428",
+                         "deepseek-v4-pro-ga-260813",
+                         "deepseek-v4-flash-ga-260731"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ARK_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "stepfun-ai",
+        "name":  "StepFun (Global)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.stepfun.ai/v1",
+        "keyUrl":  "https://platform.stepfun.ai/docs/en/overview/concept",
+        "keyRequired":  true,
+        "examples":  [
+                         "stepaudio-2.5-asr",
+                         "step-5-preview",
+                         "step-3.5-flash-2603",
+                         "step-tts-2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "STEPFUN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "the-grid-ai",
+        "name":  "The Grid AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.thegrid.ai/v1",
+        "keyUrl":  "https://thegrid.ai/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "agent-max",
+                         "gemini-pro-latest",
+                         "gpt-sol-latest",
+                         "bytedance-pro-latest"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "THEGRID_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "regolo-ai",
+        "name":  "Regolo AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.regolo.ai/v1",
+        "keyUrl":  "https://docs.regolo.ai/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3-coder-next",
+                         "gpt-oss-20b",
+                         "faster-whisper-large-v3",
+                         "qwen3.5-122b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "REGOLO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "io-net",
+        "name":  "IO.NET",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.intelligence.io.solutions/api/v1",
+        "keyUrl":  "https://io.net/docs/guides/intelligence/io-intelligence",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen2.5-VL-32B-Instruct",
+                         "Qwen/Qwen3-235B-A22B-Thinking-2507",
+                         "Qwen/Qwen3-Next-80B-A3B-Instruct",
+                         "Intel/Qwen3-Coder-480B-A35B-Instruct-int4-mixed-ar"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "IOINTELLIGENCE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "klokintegration",
+        "name":  "klokintegration.se",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api-gw.klok.ipaas.se/proxy/kloker-key/v1",
+        "keyUrl":  "https://klokintegration.se/docs/ai-api",
+        "keyRequired":  true,
+        "examples":  [
+                         "Kloker-Integration-Developer",
+                         "Kloker-Integration-Architect",
+                         "Kloker"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "KLOKINTEGRATION_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "daoxe",
+        "name":  "DaoXE",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://daoxe.com/v1",
+        "keyUrl":  "https://daoxe.com/pricing",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-5.5",
+                         "grok-4.5",
+                         "kimi-k2.5",
+                         "gemini-3.1-pro-preview"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DAOXE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "iteracompute",
+        "name":  "IteraCompute",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.iteracompute.com/v1",
+        "keyUrl":  "https://iteracompute.com/docs.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.8-2.4t-a95b",
+                         "qwen/qwen3.8-27b",
+                         "deepseek/deepseek-v4-flash-0731",
+                         "deepseek/deepseek-v4.1-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ITERACOMPUTE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "cloudflare-workers-ai",
+        "name":  "Cloudflare Workers AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/ai/v1",
+        "keyUrl":  "https://developers.cloudflare.com/workers-ai/models/",
+        "keyRequired":  true,
+        "examples":  [
+                         "@cf/qwen/qwen2.5-coder-32b-instruct",
+                         "@cf/qwen/qwen3.8-27b",
+                         "@cf/qwen/qwen3-30b-a3b-fp8",
+                         "@cf/qwen/qwq-32b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CLOUDFLARE_ACCOUNT_ID",
+                                     "CLOUDFLARE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "nearai",
+        "name":  "NEAR AI Cloud",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://cloud-api.near.ai/v1",
+        "keyUrl":  "https://docs.near.ai/",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.8-27B",
+                         "Qwen/Qwen3.6-35B-A3B-FP8",
+                         "Qwen/Qwen3.8-27B-abliterated",
+                         "Qwen/Qwen3-Embedding-0.6B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NEARAI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "vispark",
+        "name":  "Vispark",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.lab.vispark.in/v1",
+        "keyUrl":  "https://lab.vispark.in/#vision",
+        "keyRequired":  true,
+        "examples":  [
+                         "vispark/vision-medium",
+                         "vispark/vision-large",
+                         "vispark/vision-small"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "VISPARK_LAB_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "crusoe",
+        "name":  "Crusoe",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.inference.crusoecloud.com/v1",
+        "keyUrl":  "https://docs.crusoecloud.com/managed-inference/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-235B-A22B-Instruct-2507",
+                         "nvidia/Nemotron-3-Nano-Omni-Reasoning-30B-A3B",
+                         "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B",
+                         "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CRUSOE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "zhipuai",
+        "name":  "Zhipu AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://open.bigmodel.cn/api/paas/v4",
+        "keyUrl":  "https://docs.bigmodel.cn/cn/guide/start/pricing",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-4.7",
+                         "glm-4.6v",
+                         "glm-4.7-flash",
+                         "glm-4.5-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ZHIPU_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "freemodel",
+        "name":  "FreeModel",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://cc.freemodel.dev/v1",
+        "keyUrl":  "https://freemodel.dev",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-fable-5",
+                         "gpt-5.5",
+                         "claude-opus-4-6",
+                         "gpt-5.3-codex"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "FREEMODEL_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "sakana",
+        "name":  "Sakana AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.sakana.ai/v1",
+        "keyUrl":  "https://console.sakana.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "fugu-ultra-20260615",
+                         "fugu-ultra",
+                         "sakana-namazu",
+                         "fugu"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SAKANA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "groq",
+        "name":  "Groq",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://console.groq.com/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "allam-2-7b",
+                         "llama-3.1-8b-instant",
+                         "whisper-large-v3-turbo",
+                         "whisper-large-v3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "GROQ_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "inferx",
+        "name":  "InferX",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://model.inferx.net/endpoints/v1",
+        "keyUrl":  "https://model.inferx.net/endpoints",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen3-Embedding-8B",
+                         "Devstral-2-123B-Instruct-2512-int4-AutoRound",
+                         "Qwen3-Coder-Next-FP8-no-thinking",
+                         "Qwen3-Coder-Next-FP8"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "INFERX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "thinkingmachines",
+        "name":  "Thinking Machines",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://tinker.thinkingmachines.dev/services/tinker-prod/anthropic/api/v1",
+        "keyUrl":  "https://tinker-docs.thinkingmachines.ai/tinker/compatible-apis/anthropic/",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-8B",
+                         "Qwen/Qwen3.5-397B-A17B",
+                         "Qwen/Qwen3.8-27B:peft:262144",
+                         "Qwen/Qwen3.8-27B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TINKER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "alibaba-cn",
+        "name":  "Alibaba (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "keyUrl":  "https://www.alibabacloud.com/help/en/model-studio/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3-vl-plus",
+                         "qwen-omni-turbo",
+                         "qwen3-omni-flash",
+                         "kimi-k2-thinking"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DASHSCOPE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "impossibl",
+        "name":  "Impossibl",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.impossibl.com/v1",
+        "keyUrl":  "https://impossibl.com/docs/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.8-max-preview",
+                         "qwen/qwen3.7-max",
+                         "qwen/qwen3.7-plus",
+                         "qwen/qwen3.6-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "IMPOSSIBL_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "wally",
+        "name":  "Wally",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.runanywhere.ai/v1",
+        "keyUrl":  "https://docs.runanywhere.ai/wally-cloud/api",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3-fast",
+                         "minimax-m3",
+                         "deepseek-v4-flash-0731",
+                         "deepseek-v4.1-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "WALLY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "privatemode-ai",
+        "name":  "Privatemode AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "http://localhost:8080/v1",
+        "keyUrl":  "https://docs.privatemode.ai/api/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "gpt-oss-120b",
+                         "voxtral-mini-3b",
+                         "deepseek-ocr-2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "PRIVATEMODE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "aihubmix",
+        "name":  "AIHubMix",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.aihubmix.com",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3-vl-plus",
+                         "doubao-seed-2-0-mini-260428",
+                         "claude-sonnet-4-5",
+                         "claude-fable-5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AIHUBMIX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "llmtr",
+        "name":  "LLMTR",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://llmtr.com/v1",
+        "keyUrl":  "https://llmtr.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemma-4",
+                         "magibu-11b-v8",
+                         "medgemma-4b",
+                         "trendyol-asure-12b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LLMTR_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "agnes",
+        "name":  "Agnes AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://apihub.agnes-ai.com/v1",
+        "keyUrl":  "https://agnes-ai.com/doc",
+        "keyRequired":  true,
+        "examples":  [
+                         "agnes-2.5-flash",
+                         "agnes-2.0-flash",
+                         "agnes-3.0-flash",
+                         "agnes-2.5-pro-alpha"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AGNES_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "perplexity",
+        "name":  "Perplexity",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.perplexity.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "sonar-pro",
+                         "sonar-reasoning-pro",
+                         "sonar",
+                         "sonar-deep-research"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "PERPLEXITY_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "zai",
+        "name":  "Z.AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.z.ai/api/paas/v4",
+        "keyUrl":  "https://docs.z.ai/guides/overview/pricing",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-4.7",
+                         "glm-4.6v",
+                         "glm-4.7-flash",
+                         "glm-4.5-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ZHIPU_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tencent-tokenhub",
+        "name":  "Tencent TokenHub",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://tokenhub.tencentmaas.com/v1",
+        "keyUrl":  "https://cloud.tencent.com/document/product/1823/130050",
+        "keyRequired":  true,
+        "examples":  [
+                         "hy3",
+                         "hy3-preview",
+                         "hy4-preview",
+                         "hy4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TENCENT_TOKENHUB_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "neon",
+        "name":  "Neon",
+        "kind":  "openai-compatible",
+        "baseUrl":  "${NEON_AI_GATEWAY_BASE_URL}/v1",
+        "keyUrl":  "https://neon.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-4-5",
+                         "gpt-5-4-mini",
+                         "claude-fable-5",
+                         "claude-haiku-5-5"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NEON_AI_GATEWAY_BASE_URL",
+                                     "NEON_AI_GATEWAY_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "kimi-code-plan-cn",
+        "name":  "Kimi For Coding (kimi.com)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.kimi.com/coding/v1",
+        "keyUrl":  "https://www.kimi.com/code/docs/en/kimi-code/models.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "k3",
+                         "k3-256k",
+                         "k3.1-pro-highspeed",
+                         "kimi-for-coding"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "KIMI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "hetzner",
+        "name":  "Hetzner",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.hetzner.com/api/v1",
+        "keyUrl":  "https://experiments.hetzner.com/docs/inference",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen3.8-27B",
+                         "Qwen/Qwen3.6-35B-A3B-FP8"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "HETZNER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "poolside",
+        "name":  "Poolside",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.poolside.ai/v1",
+        "keyUrl":  "https://platform.poolside.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "poolside/laguna-s-2.1",
+                         "poolside/laguna-xs-2.1",
+                         "poolside/laguna-m.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "POOLSIDE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "llmtech",
+        "name":  "LLM Tech",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.llmtech.eu/v1",
+        "keyUrl":  "https://llmtech.eu/models/qwen3.8-27b",
+        "keyRequired":  true,
+        "examples":  [
+                         "nvidia/Qwen3.8-27B-NVFP4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LLMTECH_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "cline-pass",
+        "name":  "ClinePass",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.cline.bot/api/v1",
+        "keyUrl":  "https://docs.cline.bot/getting-started/clinepass",
+        "keyRequired":  true,
+        "examples":  [
+                         "cline-pass/mimo-v2.5",
+                         "cline-pass/glm-5.3",
+                         "cline-pass/deepseek-v4-pro",
+                         "cline-pass/glm-5.2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CLINE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "mistral",
+        "name":  "Mistral",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.mistral.ai/v1",
+        "keyUrl":  "https://docs.mistral.ai/getting-started/models/",
+        "keyRequired":  true,
+        "examples":  [
+                         "zai-glm-5-3",
+                         "mistral-large-4",
+                         "deepseek-v4-1-flash-1017",
+                         "zai-glm-5-2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MISTRAL_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "alibaba-token-plan-cn",
+        "name":  "Alibaba Token Plan (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+        "keyUrl":  "https://www.alibabacloud.com/help/zh/model-studio/token-plan-overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3.6-plus",
+                         "wan2.7-image",
+                         "glm-5.3",
+                         "deepseek-v4-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ALIBABA_TOKEN_PLAN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "reflection",
+        "name":  "Reflection",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.reflection.ai/openai/v1",
+        "keyUrl":  "https://developers.reflection.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "Beam-1.0-501B-A23B"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "REFLECTION_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "empiriolabs",
+        "name":  "EmpirioLabs AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.empiriolabs.ai/v1",
+        "keyUrl":  "https://docs.empiriolabs.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "mimo-v2-6-pro",
+                         "qwen3-5-397b-a17b",
+                         "qwen3-6-flash",
+                         "qwen3-7-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "EMPIRIOLABS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "drun",
+        "name":  "D.Run (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://chat.d.run/v1",
+        "keyUrl":  "https://www.d.run",
+        "keyRequired":  true,
+        "examples":  [
+                         "public/deepseek-r1",
+                         "public/deepseek-v3",
+                         "public/minimax-m25"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DRUN_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "github-copilot",
+        "name":  "GitHub Copilot",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.githubcopilot.com",
+        "keyUrl":  "https://docs.github.com/en/copilot",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-5.5",
+                         "claude-fable-5",
+                         "gpt-5.5",
+                         "gemini-3.5-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "GITHUB_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "digitalocean",
+        "name":  "DigitalOcean",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://inference.do-ai.run/v1",
+        "keyUrl":  "https://docs.digitalocean.com/products/gradient-ai-platform/details/models/",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek-3.2",
+                         "anthropic-claude-5-sonnet",
+                         "deepseek-4-flash",
+                         "openai-gpt-oss-120b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "DIGITALOCEAN_ACCESS_TOKEN"
+                                 ]
+    },
+    {
+        "id":  "zenifra",
+        "name":  "Zenifra",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://ai.zenifra.com/v1",
+        "keyUrl":  "https://docs.zenifra.com",
+        "keyRequired":  true,
+        "examples":  [
+                         "alibaba/qwen3.6-35b-a3b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ZENIFRA_AI_KEY"
+                                 ]
+    },
+    {
+        "id":  "aiand",
+        "name":  "ai\u0026",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.aiand.com/v1",
+        "keyUrl":  "https://docs.aiand.com/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.6-27b",
+                         "qwen/qwen3.8-27b",
+                         "moonshotai/kimi-k3",
+                         "moonshotai/kimi-k3.1-pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AIAND_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "amd",
+        "name":  "AMD",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://developer.amd.com.cn/radeon/api/v1",
+        "keyUrl":  "https://developer.amd.com.cn/radeon/tokenfactory",
+        "keyRequired":  true,
+        "examples":  [
+                         "DeepSeek-V4-Flash",
+                         "DeepSeek-V4-Flash-Vision-Exp",
+                         "MiniCPM5-2B",
+                         "GLM-5.3-Flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AMD_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "hopper",
+        "name":  "Hopper",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.withhopper.com/v1",
+        "keyUrl":  "https://withhopper.com/agents/deepseek-v4.1-flash-1017",
+        "keyRequired":  true,
+        "examples":  [
+                         "deepseek-v4.1-flash-1017-abliterated",
+                         "deepseek-v4.1-flash-1017"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "HOPPER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "cerebras",
+        "name":  "Cerebras",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://inference-docs.cerebras.ai/models/overview",
+        "keyRequired":  true,
+        "examples":  [
+                         "gpt-oss-120b",
+                         "qwen-3.8-27b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CEREBRAS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "nova",
+        "name":  "Nova",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.nova.amazon.com/v1",
+        "keyUrl":  "https://nova.amazon.com/dev/documentation",
+        "keyRequired":  true,
+        "examples":  [
+                         "nova-2-lite-v1",
+                         "nova-2-pro-v1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "NOVA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "claudinio",
+        "name":  "Claudinio",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.claudin.io/v1",
+        "keyUrl":  "https://claudin.io",
+        "keyRequired":  true,
+        "examples":  [
+                         "claudinio",
+                         "claudius"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CLAUDINIO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "togetherai",
+        "name":  "Together AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.together.ai/docs/serverless-models",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3.5-397B-A17B",
+                         "Qwen/Qwen3-Coder-Next-FP8",
+                         "Qwen/Qwen3.6-Plus",
+                         "Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TOGETHER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "kosmik",
+        "name":  "Kosmik Compute",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.koscompute.com/v1",
+        "keyUrl":  "https://api.koscompute.com/docs/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.8-27b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "KOSMIK_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "modelis",
+        "name":  "Modelis",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://modelishub.com/v1",
+        "keyUrl":  "https://modelishub.com/pricing",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-fable-5",
+                         "gemini-2.5-pro",
+                         "deepseek-v4-pro",
+                         "deepseek-v4-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MODELIS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "commandcode",
+        "name":  "CommandCode",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.commandcode.ai/provider/v1",
+        "keyUrl":  "https://commandcode.ai/docs/provider",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-fable-5",
+                         "gpt-5.5",
+                         "claude-haiku-5-5",
+                         "gpt-6.1-sol"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "CMD_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "sambanova",
+        "name":  "SambaNova",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.sambanova.ai/v1",
+        "keyUrl":  "https://docs.sambanova.ai/cloud/docs/get-started/supported-models",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemma-4-31B-it",
+                         "DeepSeek-V3.1",
+                         "gpt-oss-120b",
+                         "DeepSeek-V3.2"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "SAMBANOVA_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "modelscope",
+        "name":  "ModelScope",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api-inference.modelscope.cn/v1",
+        "keyUrl":  "https://modelscope.cn/docs/model-service/API-Inference/intro",
+        "keyRequired":  true,
+        "examples":  [
+                         "Qwen/Qwen3-235B-A22B-Thinking-2507",
+                         "Qwen/Qwen3-235B-A22B-Instruct-2507",
+                         "Qwen/Qwen3-30B-A3B-Thinking-2507",
+                         "Qwen/Qwen3-Coder-30B-A3B-Instruct"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MODELSCOPE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "azure-cognitive-services",
+        "name":  "Azure Cognitive Services",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "claude-sonnet-4-5",
+                         "grok-4-1-fast-non-reasoning",
+                         "claude-fable-5",
+                         "gpt-4.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AZURE_COGNITIVE_SERVICES_RESOURCE_NAME",
+                                     "AZURE_COGNITIVE_SERVICES_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "moark",
+        "name":  "Moark",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://moark.com/v1",
+        "keyUrl":  "https://moark.com/docs/openapi/v1#tag/%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90",
+        "keyRequired":  true,
+        "examples":  [
+                         "DeepSeek-V4-Flash",
+                         "MiniMax-M2.7",
+                         "deepseek-v4-flash-0731",
+                         "DeepSeek-V4-Pro"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MOARK_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "agentrouter",
+        "name":  "AgentRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://agentrouter.org/v1",
+        "keyUrl":  "https://agentrouter.org/docs/opencode.html",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "deepseek-v4-flash",
+                         "claude-opus-5",
+                         "gpt-5.6-sol"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AGENTROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ambient",
+        "name":  "Ambient",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.ambient.xyz/v1",
+        "keyUrl":  "https://ambient.xyz",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.6-35b-a3b",
+                         "qwen/qwen3.6-27b",
+                         "qwen/qwen3.8-27b",
+                         "qwen/qwen3-30b-a3b-instruct-2507"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AMBIENT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "302ai",
+        "name":  "302.AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.302.ai/v1",
+        "keyUrl":  "https://doc.302.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "gemini-3-pro-image-preview",
+                         "gemini-2.5-flash-preview-09-2025",
+                         "gpt-5-thinking",
+                         "grok-4.1"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "302AI_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "bee",
+        "name":  "Bee by HEOSSI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.bee.heossi.com/bee",
+        "keyUrl":  "https://bee.heossi.com/docs/sdks",
+        "keyRequired":  true,
+        "examples":  [
+                         "bee-brood",
+                         "bee-hive",
+                         "bee-cell",
+                         "bee-swarm"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "BEE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "openrouter",
+        "name":  "OpenRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://openrouter.ai/api/v1",
+        "keyUrl":  "https://openrouter.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "aion-labs/aion-2.0",
+                         "aion-labs/aion-3.0",
+                         "aion-labs/aion-3.0-mini",
+                         "aion-labs/aion-rp-llama-3.1-8b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "OPENROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "abliteration-ai",
+        "name":  "abliteration.ai",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.abliteration.ai/v1",
+        "keyUrl":  "https://docs.abliteration.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "abliterated-model-large",
+                         "abliterated-model-large-v2",
+                         "abliterated-model"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "ABLIT_KEY"
+                                 ]
+    },
+    {
+        "id":  "lilac",
+        "name":  "Lilac",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.getlilac.com/v1",
+        "keyUrl":  "https://docs.getlilac.com/inference/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "moonshotai/kimi-k2.6",
+                         "minimaxai/minimax-m3",
+                         "zai-org/glm-5.2",
+                         "google/gemma-4-31b-it"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LILAC_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "bothub",
+        "name":  "Bothub",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://openai.bothub.ru/v1",
+        "keyUrl":  "https://bothub.ru/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "glm-5.3",
+                         "nemotron-3-ultra-550b-a55b:free",
+                         "muse-spark-1.3-contributor",
+                         "gpt-5.6-luna"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "BOTHUB_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "tokengo",
+        "name":  "TokenGo",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.tokengo.com/v1",
+        "keyUrl":  "https://www.tokengo.com/docs",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen/qwen3.5-397b-a17b",
+                         "deepseek/deepseek-v3.1",
+                         "deepseek/deepseek-v4-pro",
+                         "deepseek/deepseek-v4-flash"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "TOKENGO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "minimax-cn",
+        "name":  "MiniMax (minimax.cn)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.minimax.cn/anthropic/v1",
+        "keyUrl":  "https://platform.minimaxi.com/docs/guides/quickstart",
+        "keyRequired":  true,
+        "examples":  [
+                         "MiniMax-M2.7",
+                         "MiniMax-M3.1-Flash",
+                         "MiniMax-M2",
+                         "MiniMax-M2.7-highspeed"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MINIMAX_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "venice",
+        "name":  "Venice AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "",
+        "keyUrl":  "https://docs.venice.ai",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3-5-397b-a17b",
+                         "openai-gpt-56-terra",
+                         "claude-fable-5",
+                         "qwen3-6-35b-a3b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "VENICE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "moonshotai-cn",
+        "name":  "Moonshot AI (China)",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.moonshot.cn/v1",
+        "keyUrl":  "https://platform.moonshot.cn/docs/api/chat",
+        "keyRequired":  true,
+        "examples":  [
+                         "kimi-k2.7-code",
+                         "kimi-k2.6",
+                         "kimi-k2.7-code-highspeed",
+                         "kimi-k3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "MOONSHOT_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "lowrouter",
+        "name":  "LowRouter",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.lowrouter.ai/v1",
+        "keyUrl":  "https://lowrouter.ai/docs/models/available",
+        "keyRequired":  true,
+        "examples":  [
+                         "auto/mistralai/mistral-large-4",
+                         "auto/mistralai/codestral-2508",
+                         "auto/mistralai/mistral-small-2603",
+                         "auto/mistralai/mistral-large-2512"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "LOWROUTER_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ainetcafe",
+        "name":  "ainetcafe",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://microquickjs.com/v1",
+        "keyUrl":  "https://ainetcafe.com/k3/guides/",
+        "keyRequired":  true,
+        "examples":  [
+                         "Kimi-K3"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AINETCAFE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "helicone",
+        "name":  "Helicone",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://ai-gateway.helicone.ai/v1",
+        "keyUrl":  "https://helicone.ai/models",
+        "keyRequired":  true,
+        "examples":  [
+                         "grok-4-1-fast-non-reasoning",
+                         "gpt-4.1",
+                         "kimi-k2-thinking",
+                         "claude-opus-4"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "HELICONE_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "aki-io",
+        "name":  "AKI.IO",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://aki.io/v1",
+        "keyUrl":  "https://aki.io/docs/",
+        "keyRequired":  true,
+        "examples":  [
+                         "qwen3.6-35b",
+                         "deepseek-v4.1-flash-552b",
+                         "gpt-oss-120b",
+                         "glm5.3-754b"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "AKI_IO_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "fireworks-ai",
+        "name":  "Fireworks AI",
+        "kind":  "openai-compatible",
+        "baseUrl":  "https://api.fireworks.ai/inference/v1/",
+        "keyUrl":  "https://fireworks.ai/docs/",
+        "keyRequired":  true,
+        "examples":  [
+                         "accounts/fireworks/routers/deepseek-flash-latest",
+                         "accounts/fireworks/routers/kimi-k3-spot",
+                         "accounts/fireworks/routers/kimi-k3-fast",
+                         "accounts/fireworks/routers/minimax-latest"
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+                                     "FIREWORKS_API_KEY"
+                                 ]
+    },
+    {
+        "id":  "ollama",
+        "name":  "Ollama",
+        "kind":  "openai-compatible",
+        "baseUrl":  "http://localhost:11434/v1",
+        "keyUrl":  "https://ollama.com",
+        "keyRequired":  false,
+        "examples":  [
+
+                     ],
+        "confirmed":  true,
+        "notes":  null,
+        "environmentVariables":  [
+
+                                 ]
+    }
+]

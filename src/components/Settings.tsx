@@ -12,8 +12,10 @@ import {
 import { Presence } from "./Motion";
 import {
   checkConnection,
+  listModels,
   saveProviderKey,
 } from "../lib/api";
+import { providerPresets } from "../lib/providers";
 import { seedPresets } from "../lib/theme";
 import {
   newId,
@@ -24,7 +26,6 @@ import { Icon } from "./Icon";
 import {
   Button,
   IconButton,
-  Switch,
   TextField,
 } from "./UI";
 import { useNotify } from "./notification-context";
@@ -44,6 +45,8 @@ function ProviderForm({
   const [name, setName] = useState(
     provider?.name ?? "",
   );
+  const [presetId, setPresetId] = useState(provider?.presetId ?? "custom");
+  const [kind, setKind] = useState(provider?.kind ?? "openai-compatible");
   const [url, setUrl] = useState(
     provider?.baseUrl ??
       "https://api.example.com/v1",
@@ -52,11 +55,26 @@ function ProviderForm({
     provider?.models.join(", ") ?? "",
   );
   const [key, setKey] = useState("");
-  const [fail, setFail] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
 
   const id = useRef(provider?.id ?? newId());
+
+  function selectPreset(value: string) {
+    setPresetId(value);
+    if (value === "custom") {
+      setKind("openai-compatible");
+      return;
+    }
+    const preset = providerPresets.find((item) => item.id === value);
+    if (!preset) return;
+    setName(preset.name);
+    setKind(preset.kind);
+    setUrl(preset.baseUrl);
+    setModels(preset.examples.join(", "));
+  }
+
+  const selectedPreset = providerPresets.find((item) => item.id === presetId);
 
   function draft(): Provider {
     const parsed = new URL(url);
@@ -86,10 +104,13 @@ function ProviderForm({
 
     return {
       id: id.current,
+      presetId,
       name: name.trim(),
+      kind,
       baseUrl: url.trim(),
       models: list,
       hasKey: provider?.hasKey ?? false,
+      keyRequired: provider?.keyRequired ?? providerPresets.find((item) => item.id === presetId)?.keyRequired ?? true,
       createdAt:
         provider?.createdAt ??
         new Date().toISOString(),
@@ -114,9 +135,7 @@ function ProviderForm({
       upsert(value);
       setKey("");
 
-      notify(
-        "Провайдер сохранён в памяти. Ключ не записывался.",
-      );
+      notify("Провайдер сохранён.");
 
       onSaved(value.id);
     } catch (caught: unknown) {
@@ -140,7 +159,7 @@ function ProviderForm({
           await checkConnection(
             draft(),
             key,
-            fail,
+            false,
           )
         ).message,
       );
@@ -150,6 +169,23 @@ function ProviderForm({
           ? caught.message
           : "Ошибка проверки",
       );
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function refreshModels() {
+    setBusy(true);
+    setError("");
+    try {
+      const modelsFromProvider = await listModels(draft(), key);
+      if (!modelsFromProvider.length) {
+        throw new Error("Провайдер не вернул список моделей. Введите модели вручную.");
+      }
+      setModels(modelsFromProvider.join(", "));
+      notify(`Получено моделей: ${modelsFromProvider.length}`);
+    } catch (caught: unknown) {
+      setError(caught instanceof Error ? caught.message : "Не удалось получить модели.");
     } finally {
       setBusy(false);
     }
@@ -166,12 +202,33 @@ function ProviderForm({
           : "Новый провайдер"}
       </h3>
 
-      <p className="muted">
-        Вводи тестовый ключ. Настоящие секреты
-        на этом этапе не нужны.
-      </p>
+        <p className="muted">Ключ хранится в Windows Credential Manager и не возвращается в интерфейс.</p>
 
       <fieldset disabled={busy}>
+        <label className="select-field">
+          <span>Пресет провайдера</span>
+          <select value={presetId} onChange={(event) => selectPreset(event.target.value)}>
+            <option value="custom">Свой провайдер</option>
+            {providerPresets.map((item) => (
+              <option value={item.id} key={item.id}>
+                {item.name}{item.notes ? " — скоро" : ""}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        {kind !== "openai-compatible" && kind !== "anthropic" && kind !== "demo" && (
+          <p className="field-hint">Этот тип провайдера отмечен как «скоро» и пока не подключается.</p>
+        )}
+
+        {selectedPreset?.keyUrl && (
+          <p className="field-hint">
+            <a href={selectedPreset.keyUrl} target="_blank" rel="noopener noreferrer">
+              Где получить ключ: {selectedPreset.name}
+            </a>
+          </p>
+        )}
+
         <TextField
           label="Название"
           value={name}
@@ -204,12 +261,7 @@ function ProviderForm({
           spellCheck={false}
         />
 
-        {provider?.hasKey && (
-          <p className="field-hint">
-            Демо-флаг ключа установлен. Пустое
-            поле его не меняет.
-          </p>
-        )}
+        {provider?.hasKey && <p className="field-hint">Ключ сохранён. Пустое поле его не меняет.</p>}
 
         <TextField
           label="Модели через запятую"
@@ -220,19 +272,22 @@ function ProviderForm({
           required
         />
 
-        <Switch
-          checked={fail}
-          onChange={setFail}
-          label="Имитировать ошибку подключения"
-          disabled={busy}
-        />
-
         <div className="actions">
           <Button
             className="button outlined"
             onClick={() => void test()}
+            disabled={kind !== "openai-compatible" && kind !== "anthropic"}
           >
             Проверить подключение
+          </Button>
+
+          <Button
+            className="button outlined"
+            type="button"
+            disabled={kind !== "openai-compatible" && kind !== "anthropic"}
+            onClick={() => void refreshModels()}
+          >
+            Обновить модели
           </Button>
 
           <Button
@@ -244,9 +299,7 @@ function ProviderForm({
         </div>
       </fieldset>
 
-      {busy && (
-        <p role="status">Локальная имитация…</p>
-      )}
+      {busy && <p role="status">Проверяем подключение…</p>}
 
       {error && (
         <p className="error" role="alert">
@@ -583,7 +636,7 @@ export function Settings({
                       </strong>
                       <small>
                         {item.hasKey
-                          ? "Ключ: демо-флаг"
+                          ? "Ключ сохранён"
                           : "Ключ не указан"}
                       </small>
                     </span>
@@ -612,18 +665,14 @@ export function Settings({
 
         {panel === "about" && (
           <section className="about">
-            <h3>Luna · этап 1</h3>
+            <h3>Luna</h3>
             <p>
               Клиент для нейросетей с
               API-ключами пользователя.
             </p>
             <p className="muted">
-              Это UI-прототип. Чаты, провайдеры
-              и hasKey хранятся только в памяти.
-              В localStorage сохраняется только
-              внешний вид. Настоящие запросы не
-              отправляются, ключи не записываются,
-              содержимое файлов не читается.
+              Чаты, сообщения и настройки провайдеров сохраняются в локальной базе SQLite.
+              Ключи хранятся отдельно в Windows Credential Manager.
             </p>
           </section>
         )}

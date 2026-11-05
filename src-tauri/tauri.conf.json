@@ -13,7 +13,6 @@
     "windows": [
       {
         "title": "Luna",
-        "icon": "icons/icon.ico",
         "width": 1280,
         "height": 800,
         "minWidth": 900,
@@ -23,7 +22,7 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; connect-src ipc: http://ipc.local; img-src 'self' asset: https://asset.local data:; style-src 'self' 'unsafe-inline'; font-src 'self' asset: https://asset.local; script-src 'self' 'unsafe-eval'"
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.local; img-src 'self' asset: https://asset.local data:; style-src 'self' 'unsafe-inline'; font-src 'self' asset: https://asset.local; script-src 'self'"
     }
   },
   "bundle": {
@@ -41,6 +40,7 @@
       "icons/icon.ico"
     ],
     "windows": {
+      "webviewInstallMode": { "type": "embedBootstrapper" },
       "nsis": {
         "installerIcon": "icons/icon.ico",
         "sidebarImage": "icons/installer-sidebar.bmp",
@@ -48,10 +48,7 @@
         "languages": ["Russian", "English"],
         "displayLanguageSelector": true,
         "installMode": "currentUser",
-        "webviewInstallMode": { "type": "embedBootstrapper" },
-        "startMenuFolder": "Luna",
-        "createDesktopShortcut": true,
-        "createStartMenuShortcut": true
+        "startMenuFolder": "Luna"
       }
     }
   }

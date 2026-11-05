@@ -1,50 +1,47 @@
 # Luna
 
-Luna — десктопный AI-клиент для Windows на Tauri 2, React и TypeScript. Текущая версия `0.1.0` работает как UI-прототип: ответы генерируются локальной имитацией, реальные API-запросы и хранение ключей ещё не подключены.
+Luna — десктопное приложение для работы с AI-провайдерами в Windows. Оно хранит чаты в локальной SQLite-базе, ключи — в Windows Credential Manager, а ответы получает потоково через OpenAI-compatible API или Anthropic Messages API.
 
-## Требования
-
-- Windows 10 или 11 с WebView2 Runtime;
-- Node.js 22 и npm;
-- Rust stable с целевой платформой MSVC;
-- Visual Studio Build Tools 2022 с компонентом **Desktop development with C++**.
+> Скриншот интерфейса будет добавлен после первого подписанного релиза.
 
 ## Установка
 
+Скачайте `Luna_0.1.0_x64-setup.exe` из GitHub Release и запустите установщик. Приложение устанавливается для текущего пользователя и не требует прав администратора. Нужен WebView2 Runtime; установщик использует встроенный bootstrapper WebView2.
+
+Сборка не подписана сертификатом. Если Windows SmartScreen покажет предупреждение, выберите **«Подробнее» → «Выполнить в любом случае»**.
+
+## Первый запуск
+
+1. Нажмите **«Добавить провайдера»**.
+2. Выберите пресет или **«Свой провайдер»**.
+3. Введите API-ключ и сохраните провайдера.
+4. Нажмите **«Проверить подключение»**, затем при необходимости **«Обновить модели»**.
+
+Ключи никогда не попадают в SQLite, `localStorage`, логи или сообщения об ошибках.
+
+## Разработка
+
+Требуются Windows 10/11, Node.js 22, Rust stable MSVC и Visual Studio Build Tools с компонентом **Desktop development with C++**.
+
 ```powershell
-git clone <URL-репозитория>
-cd Luna
 npm ci
-```
-
-## Запуск для разработки
-
-Запуск полноценного десктопного приложения с Vite и Tauri:
-
-```powershell
 npm run tauri dev
 ```
 
-Проверки фронтенда:
+В браузерном dev-режиме доступен только локальный провайдер Demo для проверки интерфейса. В release-сборке он не включается и сетевых заглушек нет.
+
+## Сборка из исходников
 
 ```powershell
 npm run build
 npx tsc --noEmit
 npm run lint
-```
-
-## Сборка установщика
-
-```powershell
+cargo check --manifest-path src-tauri/Cargo.toml
 npm run tauri build
 ```
 
-Готовые установщики появятся в `src-tauri/target/release/bundle/`.
+Установщик NSIS появится в `src-tauri/target/release/bundle/nsis/`.
 
-## Windows SmartScreen
+## Лицензия
 
-Сборки ранних версий не подписаны цифровым сертификатом, поэтому Windows SmartScreen может показать предупреждение. Чтобы запустить доверенную сборку, выберите **«Подробнее» → «Выполнить в любом случае»**.
-
-## Выпуск релиза
-
-Workflow `.github/workflows/release.yml` запускается для тегов `v*`, собирает Windows-версию и создаёт черновик GitHub Release.
+Проект распространяется под лицензией MIT. См. [LICENSE](LICENSE).

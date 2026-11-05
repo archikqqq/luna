@@ -4,10 +4,7 @@ import {
   useState,
   type KeyboardEvent,
 } from "react";
-import {
-  newId,
-  useAppStore,
-} from "../store/useAppStore";
+import { useAppStore } from "../store/useAppStore";
 import type { Attachment } from "../types";
 import { IconButton } from "./UI";
 
@@ -33,8 +30,6 @@ export function Composer({
 
   const textarea =
     useRef<HTMLTextAreaElement>(null);
-  const fileInput =
-    useRef<HTMLInputElement>(null);
 
   const busy = generatingChatId !== null;
   const here = generatingChatId === activeChatId;
@@ -131,39 +126,6 @@ export function Composer({
         />
 
         <div className="composer-bottom">
-          <input
-            ref={fileInput}
-            type="file"
-            hidden
-            multiple
-            onChange={(event) => {
-              const selected = Array.from(
-                event.target.files ?? [],
-              ).map((file) => ({
-                id: newId(),
-                name: file.name,
-                size: file.size,
-                mimeType: file.type,
-                storageRef: null,
-              }));
-
-              setAttachments((current) => [
-                ...current,
-                ...selected,
-              ]);
-
-              event.target.value = "";
-            }}
-          />
-
-          <IconButton
-            name="attach_file"
-            label="Прикрепить файлы"
-            onClick={() =>
-              fileInput.current?.click()
-            }
-          />
-
           <span className="composer-hint">
             {busy && !here
               ? "Ответ генерируется в другом чате"
@@ -194,10 +156,9 @@ export function Composer({
         </div>
       </div>
 
-      <p className="footnote">
-        Демо-режим · нет запросов к API · содержимое
-        вложений не читается
-      </p>
+      {attachments.length > 0 && (
+        <p className="footnote">Вложения пока не читаются</p>
+      )}
     </div>
   );
 }

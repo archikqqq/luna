@@ -27,6 +27,7 @@ export function Sidebar({
   onSettings: () => void;
 }) {
   const chats = useAppStore((state) => state.chats);
+  const hasProviders = useAppStore((state) => state.providers.length > 0);
   const activeChatId = useAppStore((state) => state.activeChatId);
   const selectChat = useAppStore((state) => state.selectChat);
   const newChat = useAppStore((state) => state.newChat);
@@ -115,7 +116,7 @@ export function Sidebar({
           )}
         </div>
 
-        <Button
+        {hasProviders && <Button
           className="button tonal new-chat"
           data-enter
           data-delay="30"
@@ -127,7 +128,7 @@ export function Sidebar({
         >
           <Icon name="add" size={24} />
           {!collapsed && <span>Новый чат</span>}
-        </Button>
+        </Button>}
 
         <nav className="chat-list" aria-label="Чаты">
           {chats.map((chat) => (

@@ -1,69 +1,114 @@
-import type { Provider, SendRequest, StreamOptions } from "../types";
+import { Channel, invoke } from "@tauri-apps/api/core";
+import type {
+  Provider,
+  SendRequest,
+  StreamEvent,
+  StreamOptions,
+} from "../types";
 
-// Stage 1: no network, Tauri imports, storage, or actual key retention.
-function delay(ms: number, signal?: AbortSignal): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (signal?.aborted) {
-      reject(new DOMException("Stopped", "AbortError"));
-      return;
-    }
-    const abort = () => {
-      clearTimeout(timer);
-      signal?.removeEventListener("abort", abort);
-      reject(new DOMException("Stopped", "AbortError"));
-    };
-    const timer = setTimeout(() => {
-      signal?.removeEventListener("abort", abort);
-      resolve();
-    }, ms);
-    signal?.addEventListener("abort", abort, { once: true });
-  });
-}
-
-export const demoMarkdown = [
+const demoMarkdown = [
   "## Привет! Это Luna",
   "",
-  "Сейчас работает **локальная имитация ответа**. Запросы к нейросетям не отправляются.",
+  "Ответ создан провайдером Demo. Подключите свой провайдер в настройках, чтобы отправлять реальные запросы.",
   "",
-  "### Что уже можно проверить",
-  "- Переключение чатов и моделей.",
+  "### Что можно проверить",
   "- Markdown, таблицы и подсветку кода.",
-  "- Остановку генерации и поведение прокрутки.",
-  "",
-  "```typescript",
-  "interface Greeting {",
-  "  name: string;",
-  "}",
-  "",
-  "function greet({ name }: Greeting): string {",
-  "  return `Привет, ${name}!`;",
-  "}",
-  "",
-  "console.log(greet({ name: 'Luna' }));",
-  "```",
-  "",
-  "| Возможность | Статус |",
-  "| :--- | :--- |",
-  "| Интерфейс | Готов к проверке |",
-  "| Подключение API | Следующий этап |",
-  "| Хранение ключей | Следующий этап |",
-  "",
-  "> Вложения сейчас представлены только именами и метаданными. Содержимое файлов не читается.",
-  "",
-  "Можно продолжить разговор или выбрать другой цвет в настройках.",
+  "- Остановку генерации и автоскролл.",
+  "- Переключение чатов и моделей.",
 ].join("\n");
+
+const isTauri =
+  typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;
+
+function errorText(error: unknown) {
+  if (typeof error === "string") return error;
+  if (error instanceof Error) return error.message;
+  return "Не удалось выполнить запрос.";
+}
+
+function providerInput(provider: Provider) {
+  return {
+    id: provider.id,
+    kind: provider.kind,
+    baseUrl: provider.baseUrl,
+    model: "",
+  };
+}
+
+function emit(options: StreamOptions, event: StreamEvent) {
+  options.onEvent?.(event);
+  if (event.type === "text_delta" && event.delta) options.onChunk(event.delta);
+}
+
+function normalizeEvent(raw: StreamEvent & Record<string, unknown>): StreamEvent {
+  if (raw.type === "usage") {
+    return {
+      type: "usage",
+      usage: {
+        inputTokens: Number(raw.input_tokens ?? 0),
+        outputTokens: Number(raw.output_tokens ?? 0),
+        totalTokens: Number(raw.total_tokens ?? 0),
+      },
+    };
+  }
+  return raw;
+}
+
+function delay(ms: number, signal: AbortSignal) {
+  return new Promise<void>((resolve, reject) => {
+    const timer = setTimeout(resolve, ms);
+    const abort = () => {
+      clearTimeout(timer);
+      reject(new DOMException("Stopped", "AbortError"));
+    };
+    if (signal.aborted) abort();
+    signal.addEventListener("abort", abort, { once: true });
+  });
+}
 
 export async function sendMessage(
   request: SendRequest,
   options: StreamOptions,
 ): Promise<void> {
-  if (!request.provider.models.includes(request.model)) {
-    throw new Error("Модель не найдена в настройках провайдера.");
+  if (import.meta.env.DEV && (request.provider.kind === "demo" || !isTauri)) {
+    for (let index = 0; index < demoMarkdown.length; index += 20) {
+      await delay(30, options.signal);
+      emit(options, {
+        type: "text_delta",
+        delta: demoMarkdown.slice(index, index + 20),
+      });
+    }
+    emit(options, { type: "done" });
+    return;
   }
-  await delay(350, options.signal);
-  for (let i = 0; i < demoMarkdown.length; i += 20) {
-    await delay(30, options.signal);
-    options.onChunk(demoMarkdown.slice(i, i + 20));
+
+  const requestId = crypto.randomUUID();
+  const channel = new Channel<StreamEvent>();
+  channel.onmessage = (event) => emit(options, normalizeEvent(event as StreamEvent & Record<string, unknown>));
+
+  const abort = () => {
+    void invoke("cancel_request", { requestId }).catch(() => undefined);
+  };
+  options.signal.addEventListener("abort", abort, { once: true });
+
+  try {
+    await invoke("send_message", {
+      provider: { ...providerInput(request.provider), model: request.model },
+      messages: request.messages.map((message) => ({
+        role: message.role,
+        blocks: message.blocks,
+      })),
+      requestId,
+      onEvent: channel,
+    });
+  } catch (error) {
+    if (!options.signal.aborted) {
+      const message = errorText(error);
+      emit(options, { type: "error", message });
+      throw error;
+    }
+  } finally {
+    options.signal.removeEventListener("abort", abort);
   }
 }
 
@@ -71,26 +116,42 @@ export async function saveProviderKey(
   providerId: string,
   key: string,
 ): Promise<{ hasKey: boolean }> {
-  if (!providerId || !key.trim()) throw new Error("Введите API-ключ.");
-  await delay(200);
-  // Deliberately do not save, log, or return the key.
-  return { hasKey: true };
+  if (!key.trim()) throw new Error("Введите API-ключ.");
+  if (!isTauri) return { hasKey: true };
+  return { hasKey: await invoke<boolean>("save_key", { providerId, key }) };
+}
+
+export async function deleteProviderKey(providerId: string) {
+  if (isTauri) await invoke("delete_key", { providerId });
+}
+
+export async function hasProviderKey(providerId: string) {
+  return isTauri
+    ? invoke<boolean>("has_key", { providerId })
+    : false;
+}
+
+export async function listModels(provider: Provider, draftKey = "") {
+  if (import.meta.env.DEV && (provider.kind === "demo" || !isTauri)) return provider.models;
+  return invoke<string[]>("list_models", {
+    provider: providerInput(provider),
+    draftKey: draftKey.trim() || null,
+  });
 }
 
 export async function checkConnection(
   provider: Provider,
   draftKey: string,
-  simulateError: boolean,
+  simulateError = false,
 ): Promise<{ message: string }> {
-  await delay(650);
-  const url = new URL(provider.baseUrl);
-  if (!["https:", "http:"].includes(url.protocol)) {
-    throw new Error("Base URL должен использовать HTTP или HTTPS.");
+  if (simulateError) throw new Error("Проверка подключения завершилась ошибкой.");
+  if (import.meta.env.DEV && (provider.kind === "demo" || !isTauri)) {
+    await delay(300, new AbortController().signal);
+    return { message: "Провайдер Demo доступен." };
   }
-  if (simulateError) throw new Error("Демо-ошибка: провайдер недоступен.");
-  if (!provider.models.length) throw new Error("Укажите хотя бы одну модель.");
-  if (!provider.hasKey && !draftKey.trim()) {
-    throw new Error("Демо-проверка: сначала введите ключ.");
-  }
-  return { message: "Демо-успех. Реального подключения не было." };
+  const message = await invoke<string>("test_connection", {
+    provider: providerInput(provider),
+    draftKey: draftKey.trim() || null,
+  });
+  return { message };
 }
