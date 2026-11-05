@@ -12,27 +12,47 @@
   "app": {
     "windows": [
       {
-        "title": "Luna — AI-клиент",
+        "title": "Luna",
+        "icon": "icons/icon.ico",
         "width": 1280,
         "height": 800,
         "minWidth": 900,
         "minHeight": 640,
-        "center": true
+        "center": true,
+        "devtools": false
       }
     ],
     "security": {
-      "csp": null
+      "csp": "default-src 'self'; connect-src ipc: http://ipc.local; img-src 'self' asset: https://asset.local data:; style-src 'self' 'unsafe-inline'; font-src 'self' asset: https://asset.local; script-src 'self' 'unsafe-eval'"
     }
   },
   "bundle": {
     "active": true,
-    "targets": "all",
+    "targets": ["nsis"],
+    "publisher": "Luna Project",
+    "copyright": "Copyright © 2026 Luna Project",
+    "shortDescription": "Desktop AI client for Windows",
+    "longDescription": "Luna is a desktop AI client with secure provider keys, streaming responses and persistent local conversations.",
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "windows": {
+      "nsis": {
+        "installerIcon": "icons/icon.ico",
+        "sidebarImage": "icons/installer-sidebar.bmp",
+        "headerImage": "icons/installer-header.bmp",
+        "languages": ["Russian", "English"],
+        "displayLanguageSelector": true,
+        "installMode": "currentUser",
+        "webviewInstallMode": { "type": "embedBootstrapper" },
+        "startMenuFolder": "Luna",
+        "createDesktopShortcut": true,
+        "createStartMenuShortcut": true
+      }
+    }
   }
 }
