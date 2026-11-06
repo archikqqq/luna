@@ -25,6 +25,7 @@ export interface ProviderPreset {
   confirmed: boolean;
   notes: string | null;
   environmentVariables: string[];
+  keywords?: string[];
 }
 
 export interface Provider {

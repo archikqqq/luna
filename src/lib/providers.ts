@@ -1,7 +1,14 @@
 import rawPresets from "./provider-presets.json";
 import type { Provider, ProviderPreset } from "../types";
+import { providerCollator } from "./provider-search.mjs";
 
 export const providerPresets = rawPresets as ProviderPreset[];
+const deferredKinds = new Set(["gemini-native", "azure-openai", "bedrock", "vertex"]);
+export const sortedProviderPresets = [...providerPresets].sort((a, b) => {
+  const aDeferred = deferredKinds.has(a.kind) || Boolean(a.notes);
+  const bDeferred = deferredKinds.has(b.kind) || Boolean(b.notes);
+  return Number(aDeferred) - Number(bDeferred) || providerCollator.compare(a.name, b.name);
+});
 
 export const demoProvider: Provider = {
   id: "demo",
